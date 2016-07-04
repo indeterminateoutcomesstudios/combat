@@ -2,6 +2,9 @@
 
 <ul>
   {{#each model as |encounter|}}
-    <li>{{#link-to 'encounters.details' encounter.id}}{{encounter.name}}{{/link-to}}</li>
+    <li>
+      {{#link-to 'encounters.details' encounter.id}}{{encounter.name}}{{/link-to}}
+      <span {{action (route-action 'delete' encounter)}}>&times;</span>
+    </li>
   {{/each}}
 </ul>

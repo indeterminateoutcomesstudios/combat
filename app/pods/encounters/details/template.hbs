@@ -1,9 +1,19 @@
 <h2>Encounter: {{model.encounter.name}}</h2>
 
-<h3>Monsters</h3>
+<h3>Encounter Monsters</h3>
+<ul>
+  {{#each model.encounter.monsters as |monster|}}
+    <li>
+      {{monster.name}} [{{monster.monster.name}}]
+      <span {{action (route-action 'delete' monster)}}>&times;</span>
+    </li>
+  {{/each}}
+</ul>
+
+<h3>All Monsters</h3>
 
 <ul>
   {{#each model.monsters as |monster|}}
-    <li>{{monster.name}}</li>
+    <li {{action (route-action 'addMonster' monster)}}>{{monster.name}}</li>
   {{/each}}
 </ul>
