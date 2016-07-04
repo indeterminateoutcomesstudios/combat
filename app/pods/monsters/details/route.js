@@ -3,8 +3,8 @@ import DataRoute from 'ember-data-route';
 
 export default Ember.Route.extend(DataRoute, {
 
-  model() {
-    return this.store.createRecord('monster');
+  model({ monster_id }) {
+    return this.store.findRecord('monster', monster_id);
   },
 
   actions: {

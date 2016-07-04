@@ -23,6 +23,9 @@ export default Ember.Route.extend({
       encounter.get('monsters').pushObject(encMonster);
       encMonster.save().then(() => encounter.save());
     },
+    saveMonster(monster) {
+      monster.save();
+    },
     delete(encMonster) {
       let { encounter } = this.currentModel;
       encounter.get('monsters').removeObject(encMonster);

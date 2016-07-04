@@ -4,7 +4,7 @@
 <ul>
   {{#each model.encounter.monsters as |monster|}}
     <li>
-      {{monster.name}}: {{monster.currentHitPoints}} / {{monster.hitPoints}}
+      {{show-encounter-monster model=monster onUpdate=(route-action 'saveMonster' monster)}}
       <span {{action (route-action 'delete' monster)}}>&times;</span>
     </li>
   {{/each}}

@@ -4,6 +4,9 @@
 
 <ul>
   {{#each model as |monster|}}
-    <li>{{monster.name}} <span {{action (route-action 'delete' monster)}}>&times;</span></li>
+    <li>
+      {{#link-to 'monsters.details' monster.id}}{{monster.name}}{{/link-to}}
+      <span {{action (route-action 'delete' monster)}}>&times;</span>
+    </li>
   {{/each}}
 </ul>
