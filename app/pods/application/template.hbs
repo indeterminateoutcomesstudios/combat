@@ -1,6 +1,10 @@
-<h1>Magic Stash: Combat</h1>
-<ul>
-  <li>{{#link-to 'monsters'}}Monsters{{/link-to}}</li>
-  <li>{{#link-to 'encounters'}}Encounters{{/link-to}}</li>
-</ul>
-{{outlet}}
+<div class="banner">
+  <h1>Magic Stash: <em>Combat</em></h1>
+  <nav>
+    {{#link-to 'monsters'}}Monsters{{/link-to}}
+    {{#link-to 'encounters'}}Encounters{{/link-to}}
+  </nav>
+</div>
+<div class="content">
+  {{outlet}}
+</div>

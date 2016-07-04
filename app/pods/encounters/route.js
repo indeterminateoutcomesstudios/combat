@@ -3,7 +3,10 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 
   model() {
-    return this.store.findAll('encounter');
+    return Ember.RSVP.hash({
+      encounters: this.store.findAll('encounter'),
+      monsters: this.store.findAll('monster')
+    });
   },
 
   actions: {

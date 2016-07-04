@@ -3,10 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 
   model({ encounter_id }) {
-    return Ember.RSVP.hash({
-      encounter: this.store.findRecord('encounter', encounter_id),
-      monsters: this.store.findAll('monster')
-    });
+    return this.store.findRecord('encounter', encounter_id);
   },
 
   actions: {
@@ -16,7 +13,7 @@ export default Ember.Route.extend({
         return;
       }
 
-      let { encounter } = this.currentModel,
+      let encounter = this.currentModel,
           encMonster = this.store.createRecord('encounter-monster', {
             ...monster.toJSON(), name, currentHitPoints: monster.get('hitPoints')
           });
@@ -27,7 +24,7 @@ export default Ember.Route.extend({
       monster.save();
     },
     delete(encMonster) {
-      let { encounter } = this.currentModel;
+      let encounter = this.currentModel;
       encounter.get('monsters').removeObject(encMonster);
       encounter.save().then(() => encMonster.destroyRecord());
     }
