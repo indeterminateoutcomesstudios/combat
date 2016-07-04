@@ -1,0 +1,9 @@
+<h2>Encounter: {{model.encounter.name}}</h2>
+
+<h3>Monsters</h3>
+
+<ul>
+  {{#each model.monsters as |monster|}}
+    <li>{{monster.name}}</li>
+  {{/each}}
+</ul>

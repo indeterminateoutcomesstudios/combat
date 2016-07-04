@@ -1,0 +1,7 @@
+<button {{action (route-action 'create')}}>New Encounter</button>
+
+<ul>
+  {{#each model as |encounter|}}
+    <li>{{#link-to 'encounters.details' encounter.id}}{{encounter.name}}{{/link-to}}</li>
+  {{/each}}
+</ul>
