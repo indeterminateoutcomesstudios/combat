@@ -1,0 +1,10 @@
+<h2>Add Monster</h2>
+
+<form {{action (route-action 'save') on='submit'}}>
+  <p>
+    <label for="name">Name</label>
+    {{input id="name" value=model.name}}
+  </p>
+  <button type="submit">Save</button>
+  {{#link-to 'monsters.index'}}Cancel{{/link-to}}
+</form>

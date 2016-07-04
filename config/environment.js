@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'ms-combat',
+    podModulePrefix: 'ms-combat/pods',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',

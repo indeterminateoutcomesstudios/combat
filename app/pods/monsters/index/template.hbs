@@ -1,0 +1,9 @@
+<h2>Monsters</h2>
+
+{{#link-to 'monsters.new'}}New Monster{{/link-to}}
+
+<ul>
+  {{#each model as |monster|}}
+    <li>{{monster.name}} <span {{action (route-action 'delete' monster)}}>&times;</span></li>
+  {{/each}}
+</ul>
