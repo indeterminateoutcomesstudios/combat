@@ -11,10 +11,14 @@ export default Ember.Route.extend({
 
   actions: {
     addMonster(monster) {
+      let name;
+      if (!(name = window.prompt('Name:', monster.get('name')))) {
+        return;
+      }
+
       let { encounter } = this.currentModel,
           encMonster = this.store.createRecord('encounter-monster', {
-            name: 'Sample',
-            monster
+            ...monster.toJSON(), name, currentHitPoints: monster.get('hitPoints')
           });
       encounter.get('monsters').pushObject(encMonster);
       encMonster.save().then(() => encounter.save());

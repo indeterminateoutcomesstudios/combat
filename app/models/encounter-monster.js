@@ -1,9 +1,9 @@
-import Model from 'ember-data/model';
+import Monster from './monster';
 import attr from 'ember-data/attr';
-import { belongsTo, hasMany } from 'ember-data/relationships';
+import { belongsTo } from 'ember-data/relationships';
 
-export default Model.extend({
-  name: attr(),
-  encounter: belongsTo('encounter'),
-  monster: belongsTo('monster')
+export default Monster.extend({
+  encounter:        belongsTo('encounter'),
+  currentHitPoints: attr('number'),
+  initiative:       attr('number')
 });

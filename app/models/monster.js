@@ -1,7 +1,10 @@
 import Model from 'ember-data/model';
 import attr from 'ember-data/attr';
-// import { belongsTo, hasMany } from 'ember-data/relationships';
 
 export default Model.extend({
-  name: attr()
+  name:       attr('string'),
+  hitPoints:  attr('number'),
+  armorClass: attr('number'),
+  speed:      attr('number'),
+  xp:         attr('number')
 });
