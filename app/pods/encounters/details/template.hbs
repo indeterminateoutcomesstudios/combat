@@ -1,11 +1,14 @@
-<h2>Encounter: {{model.name}}</h2>
-
-<h3>Encounter Monsters</h3>
+<div class="fieldset">
+  <h2 class="legend">Encounter: {{model.name}}</h2>
+</div>
 <ul>
-  {{#each model.monsters as |monster|}}
-    <li>
+  {{#each monstersByInit as |monster|}}
+    <li class="fieldset">
+      <h3 class="legend">
+        {{monster.name}}
+        <span {{action (route-action 'delete' monster)}} style="float: right;">[Delete]</span>
+      </h3>
       {{show-encounter-monster model=monster onUpdate=(route-action 'saveMonster' monster)}}
-      <span {{action (route-action 'delete' monster)}}>&times;</span>
     </li>
   {{/each}}
 </ul>

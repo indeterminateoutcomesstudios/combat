@@ -8,16 +8,14 @@ export default Ember.Route.extend({
 
   actions: {
     addMonster(monster) {
-      let name;
-      if (!(name = window.prompt('Name:', monster.get('name')))) {
-        return;
-      }
-
       let encounter = this.currentModel,
+          monsters = encounter.get('monsters'),
+          name = this._generateName(monster.get('name')),
           encMonster = this.store.createRecord('encounter-monster', {
             ...monster.toJSON(), name, currentHitPoints: monster.get('hitPoints')
           });
-      encounter.get('monsters').pushObject(encMonster);
+          
+      monsters.pushObject(encMonster);
       encMonster.save().then(() => encounter.save());
     },
     saveMonster(monster) {
@@ -28,6 +26,12 @@ export default Ember.Route.extend({
       encounter.get('monsters').removeObject(encMonster);
       encounter.save().then(() => encMonster.destroyRecord());
     }
+  },
+
+  _generateName(newMonsterName) {
+    let monsterNames = this.currentModel.get('monsters').mapBy('name'),
+        currentMonsters = monsterNames.filter(n => n.indexOf(newMonsterName) === 0);
+    return newMonsterName + ' #' + (currentMonsters.length + 1);
   }
 
 });

@@ -19,6 +19,8 @@
     <label for="xp">XP</label>
     {{input id="xp" value=model.xp type='number'}}
   </p>
-  <button type="submit">Save</button>
-  {{#link-to 'monsters.index'}}Cancel{{/link-to}}
+  <p class="actions">
+    {{#link-to 'monsters.index'}}Cancel{{/link-to}}
+    <button type="submit">Save</button>
+  </p>
 </form>

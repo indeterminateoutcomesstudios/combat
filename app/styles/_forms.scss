@@ -1,0 +1,52 @@
+form, .form {
+
+  display: flex;
+  flex-direction: column;
+  padding: $spacing-normal;
+
+  p {
+    overflow: hidden;
+    padding-bottom: $spacing-normal;
+  }
+
+  .actions {
+    align-self: flex-end;
+  }
+
+  label {
+    display: block;
+    padding-bottom: $spacing-close;
+
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid $color-background-bright;
+
+    color: currentColor;
+    font-size: 1.8rem;
+    font-weight: 100;
+  }
+
+  &.inline {
+    flex-direction: row;
+
+    label {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    input {
+      width: 100%;
+    }
+
+    p + p {
+      padding-left: $spacing-normal;
+    }
+  }
+
+}

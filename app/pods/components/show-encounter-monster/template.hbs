@@ -1,14 +1,14 @@
-<form>
-  <p>
+<form class="inline">
+  <p style="flex-shrink: 0.5;">
     <label for="name">Name</label>
-    <span>{{model.name}}</span>
+    {{input value=model.name focus-out='update'}}
   </p>
   <p>
-    <label for="currentHitPoints">Current Hit Points</label>
+    <label for="currentHitPoints">Current HP</label>
     {{input value=model.currentHitPoints type='number' focus-out='update'}}
   </p>
   <p>
-    <label for="hitPoints">Maximum Hit Points</label>
+    <label for="hitPoints">Maximum HP</label>
     {{input value=model.hitPoints type='number' focus-out='update'}}
   </p>
   <p>
