@@ -1,14 +1,14 @@
 <div class="fieldset">
-  <h2 class="legend">Encounter: {{model.name}}</h2>
+  <h2 class="legend">Encounter: {{model.encounter.name}}</h2>
 </div>
 <ul>
-  {{#each monstersByInit as |monster|}}
+  {{#each participants as |part|}}
     <li class="fieldset">
       <h3 class="legend">
-        {{monster.name}}
-        <span {{action (route-action 'delete' monster)}} style="float: right;">[Delete]</span>
+        {{part.name}}
+        <span {{action (route-action 'delete' part)}} style="float: right;">[Delete]</span>
       </h3>
-      {{show-encounter-monster model=monster onUpdate=(route-action 'saveMonster' monster)}}
+      {{component part.template model=part onUpdate=(route-action 'saveParticipant' part)}}
     </li>
   {{/each}}
 </ul>

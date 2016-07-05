@@ -1,0 +1,14 @@
+<form {{action (action onSave) on='submit'}}>
+  <p>
+    <label for="name">Name</label>
+    {{input id="name" value=model.name}}
+  </p>
+  <p>
+    <label for="initiative">Initiative</label>
+    {{input id="initiative" value=model.initiative type='number'}}
+  </p>
+  <p class="actions">
+    {{#link-to 'player-characters.index'}}Cancel{{/link-to}}
+    <button type="submit">Save</button>
+  </p>
+</form>

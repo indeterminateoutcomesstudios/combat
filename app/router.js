@@ -13,6 +13,10 @@ Router.map(function() {
   this.route('encounters', function() {
     this.route('details', { path: ':encounter_id' });
   });
+  this.route('player-characters', function() {
+    this.route('new');
+    this.route('details', { path: ':player_character_id' });
+  });
 });
 
 export default Router;

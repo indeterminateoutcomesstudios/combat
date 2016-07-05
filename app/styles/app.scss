@@ -31,6 +31,8 @@ h1 {
 }
 
 .main {
+  overflow-x: hidden;
+  overflow-y: auto;
   padding: 0 $spacing-normal;
   background: $color-background-medium;
 }

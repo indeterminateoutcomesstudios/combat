@@ -1,0 +1,14 @@
+<div class="sidebar">
+  <p>Player Characters {{#link-to 'player-characters.new' tagName='button'}}+{{/link-to}}</p>
+  <ul>
+    {{#each model as |pc|}}
+      <li>
+        {{#link-to 'player-characters.details' pc.id}}{{pc.name}}{{/link-to}}
+        <span {{action (route-action 'delete' pc)}}>&times;</span>
+      </li>
+    {{/each}}
+  </ul>
+</div>
+<div class="main">
+  {{outlet}}
+</div>
