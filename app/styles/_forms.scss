@@ -2,7 +2,7 @@ form, .form {
 
   display: flex;
   flex-direction: column;
-  padding: $spacing-normal;
+  padding: $spacing-normal $spacing-normal 0;
 
   p {
     overflow: hidden;
