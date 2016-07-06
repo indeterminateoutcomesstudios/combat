@@ -1,4 +1,13 @@
-<div class="fieldset">
-  <h2 class="legend">Edit Monster</h2>
+<header>
+  <h2>Monster</h2>
+</header>
+<form {{action (route-action 'save') on='submit'}}>
+  <div class="subheader">
+    <p style="font-size: 3.2rem">{{model.name}}</p>
+    <p class="actions">
+      {{#link-to 'monsters.index' classNames='button'}}Cancel{{/link-to}}
+      <button type="submit" class="button primary">Save</button>
+    </p>
+  </div>
   {{edit-monster model=model onSave=(route-action 'save')}}
-</div>
+</form>

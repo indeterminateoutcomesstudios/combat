@@ -1,0 +1,16 @@
+h2, .h2 {
+  color: #808080;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+label {
+  display: block;
+  padding-bottom: $spacing-close;
+
+  color: #808080;
+  font-size: 1.8rem;
+  font-style: oblique;
+  font-weight: normal;
+}

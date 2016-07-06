@@ -10,6 +10,7 @@
 
 :root {
   box-sizing: border-box;
+  overflow: hidden; // Prevent Chrome's overscroll.
 }
 
 a {

@@ -1,14 +1,19 @@
 <div class="sidebar">
-  <p>Monsters {{#link-to 'monsters.new' tagName='button'}}+{{/link-to}}</p>
-  <ul>
+  <header>
+    <h2>Monsters</h2>
+    {{#link-to 'monsters.new' classNames='button'}}Add Monster{{/link-to}}
+  </header>
+  <ul class="content">
     {{#each model as |monster|}}
       <li>
         {{#link-to 'monsters.details' monster.id}}{{monster.name}}{{/link-to}}
-        <span {{action (route-action 'delete' monster)}}>&times;</span>
+        {{!-- <span {{action (route-action 'delete' monster)}}>&times;</span> --}}
       </li>
     {{/each}}
   </ul>
 </div>
 <div class="main">
-  {{outlet}}
+  <div class="constrained">
+    {{outlet}}
+  </div>
 </div>

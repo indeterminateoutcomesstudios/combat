@@ -1,0 +1,24 @@
+.button {
+
+  display: flex;
+  align-items: center;
+  height: 29px;
+  padding: 0 $spacing-comfy;
+
+  background: transparent;
+  border: 1px solid #404040;
+  border-radius: 4px;
+
+  color: #808080;
+  font-size: 1.6rem;
+
+  &.primary {
+    border-color: $color-primary;
+    color: $color-primary-light;
+  }
+
+  & + & {
+    margin-left: $spacing-comfy;
+  }
+
+}

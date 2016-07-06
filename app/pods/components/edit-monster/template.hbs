@@ -1,26 +1,20 @@
-<form {{action (action onSave) on='submit'}}>
-  <p>
-    <label for="name">Name</label>
-    {{input id="name" value=model.name}}
-  </p>
-  <p>
-    <label for="hitPoints">Hit Points</label>
-    {{input id="hitPoints" value=model.hitPoints type='number'}}
-  </p>
-  <p>
-    <label for="armorClass">Armor Class</label>
-    {{input id="armorClass" value=model.armorClass type='number'}}
-  </p>
-  <p>
-    <label for="speed">Speed (ft/round)</label>
-    {{input id="speed" value=model.speed type='number'}}
-  </p>
-  <p>
-    <label for="xp">XP</label>
-    {{input id="xp" value=model.xp type='number'}}
-  </p>
-  <p class="actions">
-    {{#link-to 'monsters.index'}}Cancel{{/link-to}}
-    <button type="submit">Save</button>
-  </p>
-</form>
+<p>
+  <label for="name">Name</label>
+  {{input id="name" value=model.name}}
+</p>
+<p>
+  <label for="hitPoints">Hit Points</label>
+  {{input id="hitPoints" value=model.hitPoints type='number'}}
+</p>
+<p>
+  <label for="armorClass">Armor Class</label>
+  {{input id="armorClass" value=model.armorClass type='number'}}
+</p>
+<p>
+  <label for="speed">Speed (ft/round)</label>
+  {{input id="speed" value=model.speed type='number'}}
+</p>
+<p>
+  <label for="xp">XP</label>
+  {{input id="xp" value=model.xp type='number'}}
+</p>

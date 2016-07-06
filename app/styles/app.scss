@@ -1,6 +1,8 @@
 @import '_resets';
 @import '_layout';
 @import '_palette';
+@import '_type';
+@import '_buttons';
 
 :root {
   color: $color-foreground;
@@ -9,57 +11,35 @@
   -webkit-font-smoothing: antialiased;
 }
 
-.banner {
-  padding: 0 $spacing-normal;
-  background: $color-background-bright;
-  // border-bottom: 1px solid $color-foreground;
-}
-
-h1 {
-  font-size: 1.4rem;
-  font-weight: 300;
-
-  em {
-    font-style: normal;
-    font-weight: 600;
-  }
-}
-
-nav {
-
-  display: flex;
-  align-self: stretch;
-  align-items: stretch;
-
-  font-size: 1.4rem;
-  font-weight: 300;
-
-  a {
-    display: flex;
-    align-items: center;
-    padding: 0 $spacing-normal;
-
-    &.active {
-      box-shadow: inset 0 -1px currentColor;
-    }
-  }
-
-  a + a {
-    margin-left: $spacing-close;
-  }
-
-}
-
-.sidebar {
-  background: $color-background-light;
-  // border-right: 1px solid $color-foreground;
-}
+@import 'sections/_banner';
+@import 'sections/_sidebar';
 
 .main {
   overflow-x: hidden;
   overflow-y: auto;
   padding: 0 $spacing-normal;
   background: $color-background-medium;
+}
+
+.constrained {
+  margin: 0 auto;
+  max-width: 60.0rem;
+}
+
+header {
+  h2 {
+    margin: $spacing-comfy 0;
+  }
+}
+
+.subheader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.actions {
+  display: flex;
 }
 
 @import '_lists';

@@ -1,8 +1,15 @@
+$color-primary: #6b43a9;
+$color-primary-light: #d1b3ff;
+$color-primary-dark: #443064;
+
+$color-background-medium: #262626;
+$color-background-dark: #1f1f1f;
+$color-background-dim: mix($color-background-medium, $color-background-dark);
+
 $color-foreground: #ccc;
 $color-background-bright: #555;
 $color-background-light:  #444;
-$color-background-medium:  #222;
 
 $spacing-normal: 1.0rem;
 $spacing-close:  $spacing-normal / 2;
-$spacing-comfy:  $spacing-normal * 2;
+$spacing-comfy:  $spacing-normal * 1.5;

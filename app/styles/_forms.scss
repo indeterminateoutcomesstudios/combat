@@ -2,7 +2,7 @@ form, .form {
 
   display: flex;
   flex-direction: column;
-  padding: $spacing-normal $spacing-normal 0;
+  // padding: $spacing-normal $spacing-normal 0;
 
   p {
     overflow: hidden;
@@ -13,22 +13,21 @@ form, .form {
     align-self: flex-end;
   }
 
-  label {
-    display: block;
-    padding-bottom: $spacing-close;
-
-    font-weight: 600;
-    text-transform: uppercase;
-  }
-
   input {
+    margin-left: $spacing-comfy;
+    padding: 0 $spacing-close;
+
     background: transparent;
     border: none;
     border-bottom: 1px solid $color-background-bright;
 
     color: currentColor;
-    font-size: 1.8rem;
-    font-weight: 100;
+    font-size: 2.2rem;
+
+    &:focus {
+      color: $color-primary-light;
+      border-color: $color-primary;
+    }
   }
 
   &.inline {

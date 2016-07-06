@@ -9,24 +9,12 @@ body > .ember-view {
   flex-direction: column;
 }
 
-.banner {
-  display: flex;
-  align-items: center;
-  height: 37px;
-  justify-content: space-between;
-  flex-shrink: 0;
-}
-
-.content {
+main {
   display: flex;
   flex-grow: 1;
 }
 
-.sidebar {
-  flex-basis: 200px;
-  flex-grow: 0;
-  flex-shrink: 0;
-}
+
 
 .main {
   flex-grow: 1;

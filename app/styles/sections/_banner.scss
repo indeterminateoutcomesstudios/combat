@@ -1,0 +1,53 @@
+.banner {
+  display: flex;
+  align-items: center;
+  height: 37px;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.banner {
+  height: 50px;
+  padding: 0 $spacing-comfy;
+
+  background: $color-primary;
+
+  color: $color-primary-light;
+  font-size: 2.2rem;
+}
+
+h1 {
+  // font-size: 1.4rem;
+  font-weight: 300;
+
+  em {
+    font-style: normal;
+    font-weight: 600;
+  }
+}
+
+nav {
+
+  display: flex;
+  align-self: stretch;
+  align-items: stretch;
+
+  font-size: 2.0rem;
+  font-weight: 300;
+
+  a {
+    display: flex;
+    align-items: center;
+    padding: 0 $spacing-normal;
+
+    &.active {
+      box-shadow: inset 0 -1px $color-primary-light;
+      color: white;
+    }
+  }
+
+  a + a {
+    margin-left: $spacing-close;
+  }
+
+}
