@@ -6,7 +6,7 @@
 
 :root {
   color: $color-foreground;
-  font-family: sans-serif;
+  font-family: Alegreya;
   font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
 }
@@ -28,7 +28,7 @@
 
 header {
   h2 {
-    margin: $spacing-comfy 0;
+    margin: $spacing-comfy 0 0;
   }
 }
 
@@ -36,6 +36,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: $spacing-comfy;
 }
 
 .actions {

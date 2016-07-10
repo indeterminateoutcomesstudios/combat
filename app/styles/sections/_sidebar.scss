@@ -17,6 +17,10 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 $spacing-comfy;
+
+    h2 {
+      margin: $spacing-comfy 0;
+    }
   }
 
   li {
@@ -25,16 +29,20 @@
 
   .content a {
     display: block;
+    overflow: hidden;
     padding: $spacing-comfy;
 
-    box-shadow: inset -4px 0 rgba(black, 0.2);
+    text-overflow: ellipsis;
+    white-space: nowrap;
 
     &:hover {
       background: $color-background-dim;
+      box-shadow: inset -4px 0 rgba(black, 0.2);
     }
 
     &.active {
       background: $color-primary-dark;
+      box-shadow: inset -4px 0 rgba(black, 0.2);
       color: white;
     }
   }

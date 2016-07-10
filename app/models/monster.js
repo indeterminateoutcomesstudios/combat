@@ -6,5 +6,6 @@ export default Model.extend({
   hitPoints:  attr('number'),
   armorClass: attr('number'),
   speed:      attr('number'),
-  xp:         attr('number')
+  xp:         attr('number'),
+  notes:      attr('string')
 });

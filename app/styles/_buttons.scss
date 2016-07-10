@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   height: 29px;
-  padding: 0 $spacing-comfy;
+  padding: 0 2.0rem;
 
   background: transparent;
   border: 1px solid #404040;
@@ -15,6 +15,11 @@
   &.primary {
     border-color: $color-primary;
     color: $color-primary-light;
+  }
+
+  &.danger {
+    border-color: #5c3535;
+    color: #b34f4f;
   }
 
   & + & {

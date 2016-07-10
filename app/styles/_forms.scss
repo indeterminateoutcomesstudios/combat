@@ -4,30 +4,75 @@ form, .form {
   flex-direction: column;
   // padding: $spacing-normal $spacing-normal 0;
 
-  p {
+  p:not(.sub):not(.actions) {
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
-    padding-bottom: $spacing-normal;
+    padding-bottom: $spacing-comfy;
+    width: 100%;
   }
 
-  .actions {
-    align-self: flex-end;
+  label {
+    order: 1;
+  }
+
+  input, textarea {
+    order: 2;
+    background: transparent;
+    outline: none;
+    color: currentColor;
   }
 
   input {
     margin-left: $spacing-comfy;
     padding: 0 $spacing-close;
+    width: calc(100% - #{$spacing-comfy});
 
-    background: transparent;
     border: none;
     border-bottom: 1px solid $color-background-bright;
 
-    color: currentColor;
     font-size: 2.2rem;
+  }
 
-    &:focus {
+  [type=number] {
+    text-align: center;
+  }
+
+  textarea {
+    flex-grow: 1;
+    padding: $spacing-close $spacing-normal;
+    resize: none;
+
+    border: 1px solid $color-background-bright;
+    border-radius: 4px;
+
+    font-size: 1.8rem;
+  }
+
+  input:focus,
+  textarea:focus {
+    background-image: radial-gradient(
+      ellipse 50% 1.5rem at 50% 100%,
+      rgba($color-primary, 0.25),
+      rgba($color-primary, 0)
+    );
+    border-color: $color-primary;
+    color: white;
+
+    + label {
       color: $color-primary-light;
-      border-color: $color-primary;
     }
+  }
+
+  .column {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 50%;
+  }
+
+  .column + .column {
+    margin-left: $spacing-comfy * 2;
   }
 
   &.inline {

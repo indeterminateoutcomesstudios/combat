@@ -8,7 +8,11 @@ export default Ember.Route.extend({
 
   actions: {
     delete(monster) {
-      monster.destroyRecord();
+      if (!confirm('Are you sure you wish to delete this monster?')) {
+        return;
+      }
+      monster.destroyRecord()
+        .then(() => this.transitionTo('monsters'));
     }
   }
 
