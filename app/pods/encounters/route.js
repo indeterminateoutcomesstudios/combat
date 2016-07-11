@@ -5,6 +5,7 @@ export default Ember.Route.extend({
   model() {
     return Ember.RSVP.hash({
       encounters: this.store.findAll('encounter'),
+      pcs: this.store.findAll('player-character'),
       monsters: this.store.findAll('monster')
     });
   },
@@ -16,12 +17,22 @@ export default Ember.Route.extend({
         return;
       }
 
-      this.store.createRecord('encounter', { name }).save()
+      let combatants = this.currentModel.pcs.map(pc => {
+        let mappedPc = this.store.createRecord('combatant', pc.toJSON());
+        mappedPc.set('currentHitPoints', mappedPc.get('hitPoints'));
+        mappedPc.save();
+        return mappedPc;
+      });
+
+      this.store.createRecord('encounter', { name, combatants }).save()
         .then(({ id }) => this.transitionTo('encounters.details', id));
     },
     delete(encounter) {
-      encounter.get('monsters').toArray().forEach(m => m.destroyRecord());
-      encounter.destroyRecord();
+      if (!confirm('Are you sure you wish to delete this encounter?')) {
+        return;
+      }
+      encounter.get('combatants').toArray().forEach(m => m.destroyRecord());
+      encounter.destroyRecord().then(() => this.transitionTo('encounters'));
     }
   }
 

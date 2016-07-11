@@ -4,5 +4,5 @@ import { hasMany } from 'ember-data/relationships';
 
 export default Model.extend({
   name: attr(),
-  monsters: hasMany('encounter-monster')
+  combatants: hasMany('combatant')
 });

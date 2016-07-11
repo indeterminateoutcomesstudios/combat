@@ -10,35 +10,35 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    addMonster(monster) {
+    addMonster(combatant) {
       let { encounter } = this.currentModel,
-          monsters = encounter.get('monsters'),
-          name = this._generateName(monster.get('name')),
-          encMonster = this.store.createRecord('encounter-monster', {
-            ...monster.toJSON(), name, currentHitPoints: monster.get('hitPoints')
+          combatants = encounter.get('combatants'),
+          name = this._generateName(combatant.get('name')),
+          encMonster = this.store.createRecord('combatant', {
+            ...combatant.toJSON(), name, currentHitPoints: combatant.get('hitPoints')
           });
 
-      monsters.pushObject(encMonster);
+      combatants.pushObject(encMonster);
       encMonster.save().then(() => encounter.save());
     },
-    saveParticipant(participant) {
-      participant.save();
+    saveParticipant(combatant) {
+      combatant.save();
     },
-    deleteParticipant(encMonster) {
+    deleteParticipant(combatant) {
       if (!confirm('Are you sure you wish to delete this combatant?')) {
         return;
       }
       let { encounter } = this.currentModel;
-      encounter.get('monsters').removeObject(encMonster);
-      encounter.save().then(() => encMonster.destroyRecord());
+      encounter.get('combatants').removeObject(combatant);
+      encounter.save().then(() => combatant.destroyRecord());
     }
   },
 
   _generateName(newMonsterName) {
     let { encounter } = this.currentModel,
-        monsterNames = encounter.get('monsters').mapBy('name'),
-        currentMonsters = monsterNames.filter(n => n.indexOf(newMonsterName) === 0);
-    return newMonsterName + ' #' + (currentMonsters.length + 1);
+        monsterNames = encounter.get('combatants').mapBy('name'),
+        currentCombatants = monsterNames.filter(n => n.indexOf(newMonsterName) === 0);
+    return newMonsterName + ' #' + (currentCombatants.length + 1);
   }
 
 });

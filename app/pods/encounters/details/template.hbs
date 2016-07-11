@@ -4,7 +4,7 @@
 <div class="subheader">
   <p class="sub" style="color: white; font-size: 3.2rem">{{model.encounter.name}}</p>
   <p class="actions">
-    <button class="button danger" {{action (route-action 'delete' model)}}>Delete</button>
+    <button class="button danger" {{action (route-action 'delete' model.encounter)}}>Delete</button>
   </p>
 </div>
 <h2>Combatants</h2>
@@ -16,6 +16,7 @@
       <th class="label">Max. HP</th>
       <th class="label">Init.</th>
       <th class="label">AC</th>
+      <th><!-- Actions --></th>
     </tr>
   </thead>
   <tbody>
