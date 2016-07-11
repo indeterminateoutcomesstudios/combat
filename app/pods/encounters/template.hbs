@@ -1,4 +1,36 @@
 <div class="sidebar">
+  <header>
+    <h2>Encounters</h2>
+    <button {{action (route-action 'create')}} class='button'>Add Encounter</button>
+  </header>
+  <ul class="content">
+    {{#each model.encounters as |encounter|}}
+      <li>
+        {{#link-to 'encounters.details' encounter.id}}{{encounter.name}}{{/link-to}}
+      </li>
+    {{/each}}
+  </ul>
+  <header>
+    <h2>Monsters</h2>
+  </header>
+  <ul class="content">
+    {{#each model.monsters as |monster|}}
+      <li>
+        <a href {{action (route-action 'addMonster' monster)}}>
+          {{monster.name}}
+        </a>
+      </li>
+    {{/each}}
+  </ul>
+</div>
+<div class="main">
+  <div class="constrained">
+    {{outlet}}
+  </div>
+</div>
+
+
+{{!-- <div class="sidebar">
   <p>Encounters <button {{action (route-action 'create')}}>+</button></p>
   <ul>
     {{#each model.encounters as |encounter|}}
@@ -17,7 +49,4 @@
       </li>
     {{/each}}
   </ul>
-</div>
-<div class="main">
-  {{outlet}}
-</div>
+</div> --}}

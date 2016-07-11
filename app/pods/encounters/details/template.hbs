@@ -1,14 +1,32 @@
-<div class="fieldset">
-  <h2 class="legend">Encounter: {{model.encounter.name}}</h2>
+<header>
+  <h2>Encounter</h2>
+</header>
+<div class="subheader">
+  <p class="sub" style="color: white; font-size: 3.2rem">{{model.encounter.name}}</p>
+  <p class="actions">
+    <button class="button danger" {{action (route-action 'delete' model)}}>Delete</button>
+  </p>
 </div>
-<ul>
-  {{#each participants as |part|}}
-    <li class="fieldset">
-      <h3 class="legend">
+<h2>Combatants</h2>
+<table>
+  <thead>
+    <tr class="form inline">
+      <th class="label em" style="width: 35%">Name</th>
+      <th class="label">HP</th>
+      <th class="label">Max. HP</th>
+      <th class="label">Init.</th>
+      <th class="label">AC</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each participants as |part|}}
+      {{show-combatant model=part
+        onDelete=(route-action 'deleteParticipant' part)
+        onUpdate=(route-action 'saveParticipant' part)}}
+      {{!-- <h3 class="legend">
         {{part.name}}
         <span {{action (route-action 'delete' part)}} style="float: right;">[Delete]</span>
-      </h3>
-      {{component part.template model=part onUpdate=(route-action 'saveParticipant' part)}}
-    </li>
-  {{/each}}
-</ul>
+      </h3> --}}
+    {{/each}}
+  </tbody>
+</table>

@@ -5,11 +5,17 @@ h2, .h2 {
   text-transform: uppercase;
 }
 
-label {
-  display: block;
-
+label, th {
   color: #808080;
   font-size: 1.8rem;
   font-style: oblique;
   font-weight: normal;
+}
+
+td {
+  color: #808080;
+}
+
+label {
+  display: block;
 }

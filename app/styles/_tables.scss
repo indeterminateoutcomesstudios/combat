@@ -1,0 +1,15 @@
+th {
+  padding: $spacing-comfy $spacing-close;
+
+  &.em {
+    text-align: left;
+  }
+}
+
+td {
+  padding: 0 0 $spacing-comfy;
+
+  &.em {
+    color: $color-foreground;
+  }
+}

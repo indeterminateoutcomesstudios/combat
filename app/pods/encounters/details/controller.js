@@ -9,14 +9,8 @@ export default Ember.Controller.extend({
 
   participants: function() {
     return Ember.A([
-      ...this.get('model.encounter.monsters').map(m => {
-        m.set('template', 'show-encounter-monster');
-        return m;
-      }),
-      ...this.get('model.playerCharacters').map(pc => {
-        pc.set('template', 'show-player-character');
-        return pc;
-      })
+      ...this.get('model.encounter.monsters').toArray(),
+      ...this.get('model.playerCharacters').toArray()
     ]).sort((a, b) => +b.get('initiative') - +a.get('initiative'));
   }.property('model.encounter.monsters.@each.initiative', 'model.playerCharacters.@each.initiative')
 

@@ -8,7 +8,10 @@ export default Ember.Route.extend({
 
   actions: {
     delete(pc) {
-      pc.destroyRecord();
+      if (!confirm('Are you sure you wish to delete this PC?')) {
+        return;
+      }
+      pc.destroyRecord().then(() => this.transitionTo('player-characters'));
     }
   }
 

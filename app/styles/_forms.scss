@@ -1,8 +1,9 @@
 form, .form {
 
-  display: flex;
-  flex-direction: column;
-  // padding: $spacing-normal $spacing-normal 0;
+  &:not(tr) {
+    display: flex;
+    flex-direction: column;
+  }
 
   p:not(.sub):not(.actions) {
     display: flex;
@@ -35,7 +36,14 @@ form, .form {
   }
 
   [type=number] {
-    text-align: center;
+    // text-align: center;
+    padding-left: $spacing-comfy;
+
+    &:not(:focus)::-webkit-inner-spin-button,
+    &:not(:focus)::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      // margin: 0;
+    }
   }
 
   textarea {
@@ -79,18 +87,56 @@ form, .form {
     flex-direction: row;
 
     label {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      display: none;
+      // overflow: hidden;
+      // text-overflow: ellipsis;
+      // white-space: nowrap;
     }
 
     input {
-      width: 100%;
+
+      border-color: transparent;
+
+      &:hover {
+        border-color: $color-background-bright;
+      }
+
+      &:focus {
+        border-color: $color-primary;
+      }
     }
 
     p + p {
       padding-left: $spacing-normal;
     }
+  }
+
+  ::-webkit-input-placeholder {
+    color: $color-background-light;
+  }
+  :focus::-webkit-input-placeholder {
+    color: transparent;
+  }
+
+  :-moz-placeholder {
+    color: $color-background-light;
+  }
+  :focus:-moz-placeholder {
+    color: transparent;
+  }
+
+  ::-moz-placeholder {
+    color: $color-background-light;
+  }
+  :focus::-moz-placeholder {
+    color: transparent;
+  }
+
+  :-ms-input-placeholder {
+    color: $color-background-light;
+  }
+  :focus:-ms-input-placeholder {
+    color: transparent;
   }
 
 }

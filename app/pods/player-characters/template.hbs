@@ -1,14 +1,18 @@
 <div class="sidebar">
-  <p>Player Characters {{#link-to 'player-characters.new' tagName='button'}}+{{/link-to}}</p>
-  <ul>
+  <header>
+    <h2>Player Characters</h2>
+    {{#link-to 'player-characters.new' classNames='button'}}Add PC{{/link-to}}
+  </header>
+  <ul class="content">
     {{#each model as |pc|}}
       <li>
         {{#link-to 'player-characters.details' pc.id}}{{pc.name}}{{/link-to}}
-        <span {{action (route-action 'delete' pc)}}>&times;</span>
       </li>
     {{/each}}
   </ul>
 </div>
 <div class="main">
-  {{outlet}}
+  <div class="constrained">
+    {{outlet}}
+  </div>
 </div>

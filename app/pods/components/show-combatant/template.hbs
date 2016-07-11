@@ -1,0 +1,23 @@
+<td class="em">
+  <label for="name">Name</label>
+  {{input value=model.name focus-out='update' placeholder='–'}}
+</td>
+<td>
+  <label for="currentHitPoints">Current HP</label>
+  {{input value=model.currentHitPoints type='number' focus-out='update' placeholder='–'}}
+</td>
+<td>
+  <label for="hitPoints">Maximum HP</label>
+  {{input value=model.hitPoints type='number' focus-out='update' placeholder='–'}}
+</td>
+<td>
+  <label for="initiative">Initiative</label>
+  {{input value=model.initiative type='number' focus-out='update' placeholder='–'}}
+</td>
+<td>
+  <label for="armorClass">Armor Class</label>
+  {{input value=model.armorClass type='number' focus-out='update' placeholder='–'}}
+</td>
+<td style="padding-left: 1.0rem;">
+  <a href {{action (action 'destroy')}} class="button danger">&times;</a>
+</td>

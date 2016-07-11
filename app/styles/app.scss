@@ -17,7 +17,7 @@
 .main {
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 0 $spacing-normal;
+  padding: 0 $spacing-comfy;
   background: $color-background-medium;
 }
 
@@ -43,8 +43,8 @@ header {
   display: flex;
 }
 
-@import '_lists';
 @import '_forms';
+@import '_tables';
 
 @import 'pod-styles';
 

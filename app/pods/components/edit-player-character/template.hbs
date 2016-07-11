@@ -1,14 +1,24 @@
-<form {{action (action onSave) on='submit'}}>
+<div class="column">
   <p>
-    <label for="name">Name</label>
     {{input id="name" value=model.name}}
+    <label for="name">Name</label>
   </p>
+  <p style="width: calc(50% - 1.0rem)">
+    {{input id="currentHitPoints" value=model.currentHitPoints type='number'}}
+    <label for="currentHitPoints">Current HP</label>
+  </p>
+  <p style="width: calc(50% - 1.0rem)">
+    {{input id="hitPoints" value=model.hitPoints type='number'}}
+    <label for="hitPoints">Max. HP</label>
+  </p>
+  <p style="width: calc(50% - 1.0rem)">
+    {{input id="armorClass" value=model.armorClass type='number'}}
+    <label for="armorClass">Armor Class</label>
+  </p>
+</div>
+<div class="column">
   <p>
-    <label for="initiative">Initiative</label>
-    {{input id="initiative" value=model.initiative type='number'}}
+    {{textarea id='notes' value=model.notes}}
+    <label for="notes">Notes</label>
   </p>
-  <p class="actions">
-    {{#link-to 'player-characters.index'}}Cancel{{/link-to}}
-    <button type="submit">Save</button>
-  </p>
-</form>
+</div>

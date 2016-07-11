@@ -2,8 +2,8 @@
 
   display: flex;
   align-items: center;
-  height: 29px;
-  padding: 0 2.0rem;
+  height: 30px;
+  padding: 0 $spacing-comfy;
 
   background: transparent;
   border: 1px solid #404040;
@@ -24,6 +24,15 @@
 
   & + & {
     margin-left: $spacing-comfy;
+  }
+
+  td & {
+    height: 22px;
+    width: 22px;
+    padding: 0;
+    justify-content: center;
+
+    border-radius: 100px;
   }
 
 }
