@@ -12,14 +12,17 @@ export default Ember.Route.extend({
           model      = this.modelFor(route),
           controller = this.controllerFor(route);
       model.set('name', controller.get('name'));
-      model.save().then(() => this.transitionTo('monsters.index'));
+      // TODO: Some attacks may have been deleted; does not resetting the
+      // `attacks` collection to only non-deleted ones cause issues?
+      model.save()
+        .then(() => model.get('attacks').forEach(a => a.save()))
+        .then(() => this.transitionTo('monsters.index'));
     },
     delete(monster) {
       if (!confirm('Are you sure you wish to delete this monster?')) {
         return;
       }
-      monster.destroyRecord()
-        .then(() => this.transitionTo('monsters'));
+      monster.destroyRecord().then(() => this.transitionTo('monsters'));
     }
   }
 
