@@ -36,9 +36,6 @@ form, .form {
   }
 
   [type=number] {
-    // text-align: center;
-    padding-left: $spacing-comfy;
-
     &:not(:focus)::-webkit-inner-spin-button,
     &:not(:focus)::-webkit-outer-spin-button {
       -webkit-appearance: none;
@@ -48,6 +45,7 @@ form, .form {
 
   textarea {
     flex-grow: 1;
+    margin-left: $spacing-comfy;
     padding: $spacing-close $spacing-normal;
     resize: none;
 

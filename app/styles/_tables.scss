@@ -16,4 +16,9 @@ td {
   &.em {
     color: $color-foreground;
   }
+
+  [type=number] {
+    padding-left: $spacing-comfy;
+  }
+
 }
