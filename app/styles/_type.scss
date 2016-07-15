@@ -18,4 +18,14 @@ td {
 
 label {
   display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sub {
+  overflow: hidden;
+  padding-right: $spacing-comfy;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

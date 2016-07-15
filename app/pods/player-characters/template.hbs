@@ -4,7 +4,7 @@
     {{#link-to 'player-characters.new' classNames='button'}}Add{{/link-to}}
   </header>
   <ul class="content">
-    {{#each model as |pc|}}
+    {{#each (reject-by 'isNew' true model) as |pc|}}
       <li>
         {{#link-to 'player-characters.details' pc.id}}{{pc.name}}{{/link-to}}
       </li>

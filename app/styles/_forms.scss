@@ -27,6 +27,7 @@ form, .form {
   input {
     margin-left: $spacing-comfy;
     padding: 0 $spacing-close;
+    position: relative;
     width: calc(100% - #{$spacing-comfy});
 
     border: none;
@@ -39,7 +40,6 @@ form, .form {
     &:not(:focus)::-webkit-inner-spin-button,
     &:not(:focus)::-webkit-outer-spin-button {
       -webkit-appearance: none;
-      // margin: 0;
     }
   }
 

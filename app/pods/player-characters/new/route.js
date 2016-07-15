@@ -7,11 +7,9 @@ export default Ember.Route.extend(DataRoute, {
     return this.store.createRecord('player-character');
   },
 
-  actions: {
-    save() {
-      this.currentModel.save()
-        .then(() => this.transitionTo('player-characters.index'));
-    }
+  setupController(controller, model) {
+    controller.set('name', '');
+    this._super(controller, model);
   }
 
 });

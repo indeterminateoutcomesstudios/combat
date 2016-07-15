@@ -7,6 +7,13 @@ export default Ember.Route.extend({
   },
 
   actions: {
+    save() {
+      let route      = this.router.currentRouteName,
+          model      = this.modelFor(route),
+          controller = this.controllerFor(route);
+      model.set('name', controller.get('name'));
+      model.save().then(() => this.transitionTo('player-characters.index'));
+    },
     delete(pc) {
       if (!confirm('Are you sure you wish to delete this PC?')) {
         return;
