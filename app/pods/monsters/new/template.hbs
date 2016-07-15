@@ -9,5 +9,7 @@
       <button type="submit" class="button primary">Save</button>
     </p>
   </div>
-  {{edit-monster name=name model=model onSave=(route-action 'save')}}
+  {{edit-monster name=name model=model
+    onSave=(route-action 'save')
+    onAddAttack=(route-action 'addAttack')}}
 </form>

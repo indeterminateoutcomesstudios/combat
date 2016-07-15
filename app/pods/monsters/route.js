@@ -23,6 +23,11 @@ export default Ember.Route.extend({
         return;
       }
       monster.destroyRecord().then(() => this.transitionTo('monsters'));
+    },
+    addAttack() {
+      let route = this.router.currentRouteName,
+          model = this.modelFor(route);
+      model.get('attacks').pushObject(this.store.createRecord('attack'));
     }
   }
 

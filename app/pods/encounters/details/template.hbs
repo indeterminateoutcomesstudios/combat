@@ -16,7 +16,7 @@
       <th class="label">Max. HP</th>
       <th class="label">Init.</th>
       <th class="label">AC</th>
-      <th><!-- Actions --></th>
+      <th style="width: 32px;"><!-- Actions --></th>
     </tr>
   </thead>
   <tbody>
@@ -24,10 +24,6 @@
       {{show-combatant model=part
         onDelete=(route-action 'deleteParticipant' part)
         onUpdate=(route-action 'saveParticipant' part)}}
-      {{!-- <h3 class="legend">
-        {{part.name}}
-        <span {{action (route-action 'delete' part)}} style="float: right;">[Delete]</span>
-      </h3> --}}
     {{/each}}
   </tbody>
 </table>

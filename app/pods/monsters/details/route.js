@@ -19,13 +19,6 @@ export default Ember.Route.extend(DataRoute, {
   setupController(controller, model) {
     controller.set('name', model.get('name'));
     this._super(controller, model);
-  },
-
-  actions: {
-    addAttack() {
-      this.currentModel.get('attacks')
-        .pushObject(this.store.createRecord('attack'));
-    }
   }
 
 });
