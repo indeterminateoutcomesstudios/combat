@@ -9,7 +9,7 @@
     <input id="show-monsters" type="checkbox" class="popover-control">
     <label for="show-monsters" class="popover-cover"></label>
     <ul class="popover">
-      {{#each model.monsters as |monster|}}
+      {{#each (sort-by 'name' model.monsters) as |monster|}}
         <li>
           <a href {{action (route-action 'addMonster' monster)}}>
             {{monster.name}}
