@@ -16,21 +16,14 @@ export default Ember.Route.extend({
         return;
       }
 
-      let combatants = this.currentModel.pcs.map(pc => {
-        let mappedPc = this.store.createRecord('combatant', pc.toJSON());
-        mappedPc.set('currentHitPoints', mappedPc.get('hitPoints'));
-        mappedPc.save();
-        return mappedPc;
-      });
-
-      this.store.createRecord('encounter', { name, combatants }).save()
+      this.store.createRecord('encounter', { name }).save()
         .then(({ id }) => this.transitionTo('encounters.details', id));
     },
     delete(encounter) {
       if (!confirm('Are you sure you wish to delete this encounter?')) {
         return;
       }
-      encounter.get('combatants').toArray().forEach(m => m.destroyRecord());
+      encounter.get('combatants').toArray().invoke('destroyRecord');
       encounter.destroyRecord().then(() => this.transitionTo('encounters'));
     }
   }

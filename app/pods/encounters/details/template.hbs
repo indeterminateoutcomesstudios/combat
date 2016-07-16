@@ -5,18 +5,8 @@
   <p class="sub" style="color: white; font-size: 3.2rem">{{model.encounter.name}}</p>
   <p class="actions">
     <button class="button danger" {{action (route-action 'delete' model.encounter)}}>Delete</button>
-    <label for="show-monsters" class="button">Add Monster</label>
-    <input id="show-monsters" type="checkbox" class="popover-control">
-    <label for="show-monsters" class="popover-cover"></label>
-    <ul class="popover">
-      {{#each (sort-by 'name' model.monsters) as |monster|}}
-        <li>
-          <a href {{action (route-action 'addMonster' monster)}}>
-            {{monster.name}}
-          </a>
-        </li>
-      {{/each}}
-    </ul>
+    {{list-popover label='Add PC' model=model.playerCharacters onSelect=(route-action 'addMonster')}}
+    {{list-popover label='Add Monster' model=model.monsters onSelect=(route-action 'addMonster')}}
   </p>
 </div>
 <h2>Combatants</h2>

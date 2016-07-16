@@ -1,0 +1,12 @@
+<label for="{{elementId}}-toggle" class="button">{{label}}</label>
+<input id="{{elementId}}-toggle" type="checkbox" class="popover-control">
+<label for="{{elementId}}-toggle" class="popover-cover"></label>
+<ul class="popover">
+  {{#each (sort-by 'name' model) as |monster|}}
+    <li>
+      <a href {{action (action onSelect monster)}}>
+        {{monster.name}}
+      </a>
+    </li>
+  {{/each}}
+</ul>

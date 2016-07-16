@@ -37,6 +37,8 @@ td {
 .row-attack {
   display: none;
 
+  font-size: 1.8rem;
+
   &.row-turn {
     display: table-row;
   }
@@ -54,6 +56,4 @@ td {
 .inputesque {
   padding: $spacing-close 0;
   padding-left: $spacing-normal * 2;
-
-  font-size: 1.6rem;
 }

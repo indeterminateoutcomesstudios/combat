@@ -17,9 +17,12 @@ export default Ember.Route.extend({
           name = this._generateName(combatant.get('name')),
           encMonster = this.store.createRecord('combatant', {
             ...combatant.toJSON(), name,
-            attacks: combatant.get('attacks'),
             currentHitPoints: combatant.get('hitPoints')
           });
+
+      if (combatant.get('attacks')) {
+        encMonster.set('attacks', combatant.get('attacks'));
+      }
 
       combatants.pushObject(encMonster);
       encMonster.save().then(() => encounter.save());
