@@ -2,8 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 
-  tagName: 'tr',
-  classNames: 'form inline',
+  tagName: '',
 
   actions: {
     update() {

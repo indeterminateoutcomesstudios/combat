@@ -1,23 +1,35 @@
-<td class="em">
-  <label for="name">Name</label>
-  {{input value=model.name focus-out='update' placeholder='–'}}
-</td>
-<td>
-  <label for="currentHitPoints">Current HP</label>
-  {{input value=model.currentHitPoints type='number' focus-out='update' placeholder='–'}}
-</td>
-<td>
-  <label for="hitPoints">Maximum HP</label>
-  {{input value=model.hitPoints type='number' focus-out='update' placeholder='–'}}
-</td>
-<td>
-  <label for="initiative">Initiative</label>
-  {{input value=model.initiative type='number' focus-out='update' placeholder='–'}}
-</td>
-<td>
-  <label for="armorClass">Armor Class</label>
-  {{input value=model.armorClass type='number' focus-out='update' placeholder='–'}}
-</td>
-<td>
-  <a href {{action (action 'destroy')}} class="button tiny danger">&times;</a>
-</td>
+<tr class="form inline row-combatant">
+  <td class="em">
+    <label for="name">Name</label>
+    {{input value=model.name focus-out='update' placeholder='–'}}
+  </td>
+  <td>
+    <label for="currentHitPoints">Current HP</label>
+    {{input value=model.currentHitPoints type='number' focus-out='update' placeholder='–'}}
+  </td>
+  <td>
+    <label for="hitPoints">Maximum HP</label>
+    {{input value=model.hitPoints type='number' focus-out='update' placeholder='–'}}
+  </td>
+  <td>
+    <label for="initiative">Initiative</label>
+    {{input value=model.initiative type='number' focus-out='update' placeholder='–'}}
+  </td>
+  <td>
+    <label for="armorClass">Armor Class</label>
+    {{input value=model.armorClass type='number' focus-out='update' placeholder='–'}}
+  </td>
+  <td>
+    <a href {{action (action 'destroy')}} class="button tiny danger">&times;</a>
+  </td>
+</tr>
+{{#each model.attacks as |attack|}}
+  <tr class="form inline row-attack">
+    <td class="inputesque">{{attack.name}}</td>
+    <td class="inputesque">{{attack.attackBonus}}</td>
+    <td class="inputesque">{{attack.damageBonus}}</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+{{/each}}
