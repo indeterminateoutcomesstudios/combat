@@ -57,3 +57,16 @@ td {
   padding: $spacing-close 0;
   padding-left: $spacing-normal * 2;
 }
+
+.row-bloodied .hp {
+  color: #b34f4f;
+}
+
+.row-unconscious {
+  input {
+    color: $color-background-light;
+  }
+  .em {
+    text-decoration: line-through;
+  }
+}

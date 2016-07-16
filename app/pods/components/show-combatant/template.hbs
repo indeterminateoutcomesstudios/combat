@@ -1,4 +1,4 @@
-<tr class="form inline row-combatant {{if model.turn 'row-turn'}}">
+<tr class="form inline row-combatant {{if model.turn 'row-turn'}} {{if model.bloodied 'row-bloodied'}} {{if model.unconscious 'row-unconscious'}}">
   <td>
     <a href {{action (action onSetTurn)}} class="button tiny set-turn">{{if model.turn '>'}}</a>
   </td>
@@ -8,11 +8,11 @@
   </td>
   <td>
     <label for="currentHitPoints">Current HP</label>
-    {{input value=model.currentHitPoints type='number' focus-out='update' placeholder='–'}}
+    {{input value=model.currentHitPoints type='number' classNames='hp' focus-out='update' placeholder='–'}}
   </td>
   <td>
     <label for="hitPoints">Maximum HP</label>
-    {{input value=model.hitPoints type='number' focus-out='update' placeholder='–'}}
+    {{input value=model.hitPoints type='number' classNames='hp' focus-out='update' placeholder='–'}}
   </td>
   <td>
     <label for="initiative">Initiative</label>
