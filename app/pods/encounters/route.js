@@ -5,8 +5,7 @@ export default Ember.Route.extend({
   model() {
     return Ember.RSVP.hash({
       encounters: this.store.findAll('encounter'),
-      pcs: this.store.findAll('player-character'),
-      monsters: this.store.findAll('monster')
+      pcs: this.store.findAll('player-character')
     });
   },
 

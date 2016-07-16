@@ -8,9 +8,11 @@
   background: transparent;
   border: 1px solid #404040;
   border-radius: 4px;
+  cursor: pointer;
 
   color: #808080;
   font-size: 1.6rem;
+  -webkit-user-select: none;
 
   &.primary {
     border-color: $color-primary;

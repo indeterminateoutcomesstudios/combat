@@ -5,7 +5,7 @@ h2, .h2 {
   text-transform: uppercase;
 }
 
-label, th {
+label:not(.button), th {
   color: #808080;
   font-size: 1.8rem;
   font-style: oblique;
@@ -16,7 +16,7 @@ td {
   color: #808080;
 }
 
-label {
+label:not(.button) {
   display: block;
   overflow: hidden;
   text-overflow: ellipsis;

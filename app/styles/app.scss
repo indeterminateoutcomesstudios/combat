@@ -41,6 +41,7 @@ header {
 
 .actions {
   display: flex;
+  position: relative;
 }
 
 @import '_forms';
@@ -93,4 +94,62 @@ legend, .legend {
   &.em {
     font-weight: bold;
   }
+}
+
+.popover-control {
+  display: none;
+
+  &:checked ~ .popover,
+  &:checked ~ .popover-cover {
+    display: block !important;
+  }
+}
+
+.popover {
+  display: none;
+  padding: $spacing-normal 0;
+  position: absolute;
+  right: 0;
+  top: 36px;
+  z-index: 2;
+
+  background: mix($color-background-medium, $color-background-light);
+  border-radius: 4px;
+  box-shadow: 0 4px 0 rgba(black, 0.2);
+
+  font-size: 1.8rem;
+
+  &:after {
+    content: '';
+    display: block;
+    height: 12px;
+    width: 12px;
+    background: mix($color-background-medium, $color-background-light);
+    position: absolute;
+    top: -7px;
+    right: 12px;
+    transform: rotate(45deg);
+  }
+
+  a {
+    display: block;
+    padding: $spacing-close $spacing-comfy;
+    padding-right: $spacing-comfy * 3;
+
+    &:hover {
+      background-color: $color-primary-dark;
+    }
+  }
+}
+
+.popover-cover {
+  display: none !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+
+  background: transparent;
 }
