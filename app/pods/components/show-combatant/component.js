@@ -5,11 +5,10 @@ export default Ember.Component.extend({
   tagName: '',
 
   actions: {
-    update() {
-      this.attrs.onUpdate();
-    },
-    destroy() {
-      this.attrs.onDelete();
+    commitIfEnter(val, e) {
+      if (e.keyCode === 13) {
+        e.currentTarget.blur(); // This triggers an update.
+      }
     }
   }
 

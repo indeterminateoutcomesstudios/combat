@@ -38,12 +38,15 @@ form, .form {
 
   [type=number] {
 
-    font-feature-settings: 'lnum';
+    // lnum: "lining figures", or the non-old-style numbers
+    // tnum: "tabular figures", or numbers of equal width
+    font-feature-settings: 'lnum', 'tnum';
 
     &:not(:focus):not(:hover)::-webkit-inner-spin-button,
     &:not(:focus):not(:hover)::-webkit-outer-spin-button {
       -webkit-appearance: none;
     }
+
   }
 
   textarea {

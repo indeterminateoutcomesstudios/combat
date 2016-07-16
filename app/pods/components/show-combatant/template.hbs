@@ -4,26 +4,41 @@
   </td>
   <td class="em">
     <label for="name">Name</label>
-    {{input value=model.name focus-out='update' placeholder='–'}}
+    {{input value=(readonly model.name)
+      key-up=(action actions.commitIfEnter)
+      focus-out=(action (mut model.name))
+      placeholder='–'}}
   </td>
   <td>
     <label for="currentHitPoints">Current HP</label>
-    {{input value=model.currentHitPoints type='number' classNames='hp' focus-out='update' placeholder='–'}}
+    {{input value=(readonly model.currentHitPoints)
+      key-up=(action actions.commitIfEnter)
+      focus-out=(action (mut model.currentHitPoints))
+      type='number' classNames='hp' placeholder='–'}}
   </td>
   <td>
     <label for="hitPoints">Maximum HP</label>
-    {{input value=model.hitPoints type='number' classNames='hp' focus-out='update' placeholder='–'}}
+    {{input value=(readonly model.hitPoints)
+      key-up=(action actions.commitIfEnter)
+      focus-out=(action (mut model.hitPoints))
+      type='number' classNames='hp' placeholder='–'}}
   </td>
   <td>
     <label for="initiative">Initiative</label>
-    {{input value=model.initiative type='number' focus-out='update' placeholder='–'}}
+    {{input value=(readonly model.initiative)
+      key-up=(action actions.commitIfEnter)
+      focus-out=(action (mut model.initiative))
+      type='number' placeholder='–'}}
   </td>
   <td>
     <label for="armorClass">Armor Class</label>
-    {{input value=model.armorClass type='number' focus-out='update' placeholder='–'}}
+    {{input value=(readonly model.armorClass)
+      key-up=(action actions.commitIfEnter)
+      focus-out=(action (mut model.armorClass))
+      type='number' placeholder='–'}}
   </td>
   <td>
-    <a href {{action (action 'destroy')}} class="button tiny danger">&times;</a>
+    <a href {{action (action onDelete)}} class="button tiny danger">&times;</a>
   </td>
 </tr>
 {{#each model.attacks as |attack|}}

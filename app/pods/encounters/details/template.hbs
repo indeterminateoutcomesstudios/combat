@@ -23,7 +23,7 @@
     </tr>
   </thead>
   <tbody>
-    {{#each participants as |part|}}
+    {{#each model.encounter.arrangedCombatants as |part|}}
       {{show-combatant model=part
         onDelete=(route-action 'deleteParticipant' part)
         onUpdate=(route-action 'saveParticipant' part)
