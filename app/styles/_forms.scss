@@ -37,8 +37,8 @@ form, .form {
   }
 
   [type=number] {
-    &:not(:focus)::-webkit-inner-spin-button,
-    &:not(:focus)::-webkit-outer-spin-button {
+    &:not(:focus):not(:hover)::-webkit-inner-spin-button,
+    &:not(:focus):not(:hover)::-webkit-outer-spin-button {
       -webkit-appearance: none;
     }
   }
@@ -91,12 +91,6 @@ form, .form {
 
     input {
 
-      border-color: transparent;
-
-      &:hover {
-        border-color: $color-background-bright;
-      }
-
       &:focus {
         border-color: $color-primary;
       }
@@ -105,6 +99,7 @@ form, .form {
     p + p {
       padding-left: $spacing-normal;
     }
+
   }
 
   ::-webkit-input-placeholder {

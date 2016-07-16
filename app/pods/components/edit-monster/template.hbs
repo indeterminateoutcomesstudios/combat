@@ -26,43 +26,46 @@
     <label for="notes">Notes</label>
   </p>
 </div>
-<p>
-  <label>
+{{!-- HACK: These margins help align things; probably better served elsewhere. --}}
+<p style="margin-left: -1.5rem;">
+  <h3>
     Attacks
-    <a href {{action (action onAddAttack)}}>(Add)</a>
-  </label>
-  <table>
-    <thead>
-      <tr class="form inline">
-        <th class="label em" style="width: 45%">Name</th>
-        <th class="label">Attack Bonus</th>
-        <th class="label">Damage Bonus</th>
-        <th style="width: 32px;"></th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each (reject-by 'isDeleted' true model.attacks) as |attack|}}
+    <a href {{action (action onAddAttack)}} class="button tiny">+</a>
+  </h3>
+  {{#if attacks.length}}
+    <table style="margin-left: 1.0rem; width: calc(100% - 1.0rem)">
+      <thead>
         <tr class="form inline">
-          <td class="em">
-            <label>Name</label>
-            {{input value=attack.name
-              focus-out=(action (mut attack.name)) placeholder='–'}}
-          </td>
-          <td>
-            <label>Attack Bonus</label>
-            {{input value=attack.attackBonus type='number'
-              focus-out=(action (mut attack.attackBonus)) placeholder='–'}}
-          </td>
-          <td>
-            <label>Damage Bonus</label>
-            {{input value=attack.damageBonus type='number'
-              focus-out=(action (mut attack.damageBonus)) placeholder='–'}}
-          </td>
-          <td style="padding-left: 1.0rem;">
-            <a href {{action (action 'deleteAttack' attack)}} class="button danger">&times;</a>
-          </td>
+          <th class="label em" style="width: 50%">Name</th>
+          <th class="label">Attack Bonus</th>
+          <th class="label">Damage Bonus</th>
+          <th style="width: 32px;"></th>
         </tr>
-      {{/each}}
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        {{#each attacks as |attack|}}
+          <tr class="form inline">
+            <td class="em">
+              <label>Name</label>
+              {{input value=attack.name
+                focus-out=(action (mut attack.name)) placeholder='–'}}
+            </td>
+            <td>
+              <label>Attack Bonus</label>
+              {{input value=attack.attackBonus type='number'
+                focus-out=(action (mut attack.attackBonus)) placeholder='–'}}
+            </td>
+            <td>
+              <label>Damage Bonus</label>
+              {{input value=attack.damageBonus type='number'
+                focus-out=(action (mut attack.damageBonus)) placeholder='–'}}
+            </td>
+            <td>
+              <a href {{action (action 'deleteAttack' attack)}} class="button tiny danger">&times;</a>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  {{/if}}
 </p>

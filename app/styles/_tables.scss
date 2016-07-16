@@ -5,14 +5,15 @@ table {
 
 th {
   padding: $spacing-comfy $spacing-close;
-
-  &.em {
-    text-align: left;
-  }
+  text-align: left;
 }
 
 td {
   padding: 0 0 $spacing-comfy;
+
+  &:not(.actions) {
+    padding-right: $spacing-comfy;
+  }
 
   &.em {
     color: $color-foreground;
