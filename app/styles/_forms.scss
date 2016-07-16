@@ -37,6 +37,9 @@ form, .form {
   }
 
   [type=number] {
+
+    font-feature-settings: 'lnum';
+
     &:not(:focus):not(:hover)::-webkit-inner-spin-button,
     &:not(:focus):not(:hover)::-webkit-outer-spin-button {
       -webkit-appearance: none;

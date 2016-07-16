@@ -1,4 +1,7 @@
-<tr class="form inline row-combatant">
+<tr class="form inline row-combatant {{if model.turn 'row-turn'}}">
+  <td>
+    <a href {{action (action onSetTurn)}} class="button tiny set-turn">{{if model.turn '>'}}</a>
+  </td>
   <td class="em">
     <label for="name">Name</label>
     {{input value=model.name focus-out='update' placeholder='–'}}
@@ -24,7 +27,8 @@
   </td>
 </tr>
 {{#each model.attacks as |attack|}}
-  <tr class="form inline row-attack">
+  <tr class="form inline row-attack {{if model.turn 'row-turn'}}">
+    <td></td>
     <td class="inputesque">{{attack.name}}</td>
     <td class="inputesque">{{attack.attackBonus}}</td>
     <td class="inputesque">{{attack.damageBonus}}</td>

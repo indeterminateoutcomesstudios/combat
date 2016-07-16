@@ -24,6 +24,13 @@ export default Ember.Route.extend({
       combatants.pushObject(encMonster);
       encMonster.save().then(() => encounter.save());
     },
+    setTurn(combatant) {
+      let { encounter } = this.currentModel,
+          combatants = encounter.get('combatants');
+      combatants.without(combatant).setEach('turn', false);
+      combatant.set('turn', !combatant.get('turn'));
+      combatants.invoke('save');
+    },
     saveParticipant(combatant) {
       combatant.save();
     },

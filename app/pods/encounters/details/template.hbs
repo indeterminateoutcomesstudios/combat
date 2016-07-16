@@ -23,6 +23,7 @@
 <table>
   <thead>
     <tr class="form inline">
+      <th style="width: 32px;"><!-- Turn Indicator --></th>
       <th class="label em" style="width: 35%">Name</th>
       <th class="label">HP</th>
       <th class="label">Max. HP</th>
@@ -35,7 +36,8 @@
     {{#each participants as |part|}}
       {{show-combatant model=part
         onDelete=(route-action 'deleteParticipant' part)
-        onUpdate=(route-action 'saveParticipant' part)}}
+        onUpdate=(route-action 'saveParticipant' part)
+        onSetTurn=(route-action 'setTurn' part)}}
     {{/each}}
   </tbody>
 </table>

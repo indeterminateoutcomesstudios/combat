@@ -21,7 +21,7 @@ td {
   }
 
   [type=number] {
-    padding-left: $spacing-comfy;
+    padding-left: $spacing-normal;
   }
 
 }
@@ -32,6 +32,23 @@ td {
 .row-combatant + .row-attack td,
 .row-attack + .row-combatant td {
   // border-top: 1px solid $color-background-light;
+}
+
+.row-attack {
+  display: none;
+
+  &.row-turn {
+    display: table-row;
+  }
+}
+
+.set-turn {
+  border-color: currentColor;
+  color: $color-background-light;
+
+  .row-turn & {
+    color: $color-foreground;
+  }
 }
 
 .inputesque {
