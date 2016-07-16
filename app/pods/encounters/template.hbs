@@ -4,7 +4,7 @@
     <button {{action (route-action 'create')}} class='button'>Add</button>
   </header>
   <ul class="content">
-    {{#each model.encounters as |encounter|}}
+    {{#each (sort-by 'name' model.encounters) as |encounter|}}
       <li>
         {{#link-to 'encounters.details' encounter.id}}{{encounter.name}}{{/link-to}}
       </li>

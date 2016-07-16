@@ -4,7 +4,7 @@
     {{#link-to 'monsters.new' classNames='button'}}Add{{/link-to}}
   </header>
   <ul class="content">
-    {{#each (reject-by 'isNew' true model) as |monster|}}
+    {{#each (sort-by 'name' (reject-by 'isNew' true model)) as |monster|}}
       <li>
         {{#link-to 'monsters.details' monster.id}}{{monster.name}}{{/link-to}}
       </li>
