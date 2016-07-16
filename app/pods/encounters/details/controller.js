@@ -9,8 +9,7 @@ export default Ember.Controller.extend({
 
   participants: function() {
     return Ember.A([
-      ...this.get('model.encounter.combatants').toArray(),
-      // ...this.get('model.playerCharacters').toArray()
+      ...this.get('model.encounter.combatants').toArray()
     ]).sort((a, b) => +b.get('initiative') - +a.get('initiative'));
   }.property('model.encounter.combatants.@each.initiative')
 
