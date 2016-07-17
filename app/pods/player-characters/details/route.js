@@ -15,15 +15,17 @@ export default Ember.Route.extend(DataRoute, {
   },
 
   actions: {
-    save() {
+    async save() {
       this.currentModel.set('name', this.controller.get('name'));
-      this.currentModel.save().then(() => this.transitionTo('player-characters.index'));
+      await this.currentModel.save();
+      this.transitionTo('player-characters.index');
     },
-    delete(pc) {
+    async delete(pc) {
       if (!confirm('Are you sure you wish to delete this PC?')) {
         return;
       }
-      pc.destroyRecord().then(() => this.transitionTo('player-characters'));
+      await pc.destroyRecord();
+      this.transitionTo('player-characters');
     }
   }
 

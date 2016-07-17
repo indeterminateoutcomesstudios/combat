@@ -28,19 +28,20 @@ export default Ember.Route.extend(DataRoute, {
   },
 
   actions: {
-    save() {
+    async save() {
       this.currentModel.set('name', this.controller.get('name'));
       // TODO: Some attacks may have been deleted; does not resetting the
       // `attacks` collection to only non-deleted ones cause issues?
-      this.currentModel.save()
-        .then(() => this.currentModel.get('attacks').invoke('save'))
-        .then(() => this.transitionTo('monsters.index'));
+      await this.currentModel.save()
+      this.currentModel.get('attacks').invoke('save')
+      this.transitionTo('monsters.index');
     },
-    delete(monster) {
+    async delete(monster) {
       if (!confirm('Are you sure you wish to delete this monster?')) {
         return;
       }
-      monster.destroyRecord().then(() => this.transitionTo('monsters'));
+      await monster.destroyRecord();
+      this.transitionTo('monsters');
     },
     addAttack() {
       this.currentModel.get('attacks')

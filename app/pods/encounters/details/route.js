@@ -11,7 +11,7 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    addMonster(combatant) {
+    async addMonster(combatant) {
       let { encounter } = this.currentModel,
           combatants = encounter.get('combatants'),
           name = this._generateName(combatant.get('name')),
@@ -25,7 +25,8 @@ export default Ember.Route.extend({
       }
 
       combatants.pushObject(encMonster);
-      encMonster.save().then(() => encounter.save());
+      await encMonster.save()
+      encounter.save();
     },
     setTurn(combatant) {
       let { encounter } = this.currentModel,
@@ -37,20 +38,22 @@ export default Ember.Route.extend({
     saveParticipant(combatant) {
       combatant.save();
     },
-    deleteParticipant(combatant) {
+    async deleteParticipant(combatant) {
       if (!confirm('Are you sure you wish to delete this combatant?')) {
         return;
       }
       let { encounter } = this.currentModel;
       encounter.get('combatants').removeObject(combatant);
-      encounter.save().then(() => combatant.destroyRecord());
+      await encounter.save()
+      combatant.destroyRecord();
     }
   },
 
   _generateName(newMonsterName) {
     let { encounter } = this.currentModel,
         monsterNames = encounter.get('combatants').mapBy('name'),
-        currentCombatants = monsterNames.filter(n => n.indexOf(newMonsterName) === 0);
+        currentCombatants = monsterNames
+          .filter(name => name.indexOf(newMonsterName) === 0);
     return newMonsterName + ' #' + (currentCombatants.length + 1);
   }
 

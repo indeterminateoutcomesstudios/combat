@@ -10,21 +10,22 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    create() {
+    async create() {
       let name;
       if (!(name = window.prompt('Name:'))) {
         return;
       }
 
-      this.store.createRecord('encounter', { name }).save()
-        .then(({ id }) => this.transitionTo('encounters.details', id));
+      let { id } = await this.store.createRecord('encounter', { name }).save()
+      this.transitionTo('encounters.details', id);
     },
-    delete(encounter) {
+    async delete(encounter) {
       if (!confirm('Are you sure you wish to delete this encounter?')) {
         return;
       }
       encounter.get('combatants').toArray().invoke('destroyRecord');
-      encounter.destroyRecord().then(() => this.transitionTo('encounters'));
+      await encounter.destroyRecord();
+      this.transitionTo('encounters');
     }
   }
 
