@@ -5,8 +5,8 @@ export default Ember.Route.extend(DataRoute, {
 
   model({ player_character_id }) {
     return player_character_id === 'new' ?
-      this.store.createRecord('monster') :
-      this.store.findRecord('monster', player_character_id);
+      this.store.createRecord('player-character') :
+      this.store.findRecord('player-character', player_character_id);
   },
 
   setupController(controller, model) {
