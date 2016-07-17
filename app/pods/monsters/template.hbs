@@ -1,7 +1,7 @@
 <div class="sidebar">
   <header>
     <h2>Monsters</h2>
-    {{#link-to 'monsters.new' classNames='button'}}Add{{/link-to}}
+    {{#link-to 'monsters.details' 'new' classNames='button'}}Add{{/link-to}}
   </header>
   <ul class="content">
     {{#each (sort-by 'name' (reject-by 'isNew' true model)) as |monster|}}

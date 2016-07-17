@@ -3,9 +3,13 @@
 </header>
 <form {{action (route-action 'save') on='submit'}}>
   <div class="subheader">
-    <p class="sub" style="color: white; font-size: 3.2rem">{{model.name}}</p>
+    <p class="sub" style="color: white; font-size: 3.2rem">
+      {{if model.isNew 'Add Monster' model.name}}
+    </p>
     <p class="actions">
-      <button class="button danger" {{action (route-action 'delete' model)}}>Delete</button>
+      {{#unless model.isNew}}
+        <button class="button danger" {{action (route-action 'delete' model)}}>Delete</button>
+      {{/unless}}
       {{#link-to 'monsters.index' classNames='button'}}Cancel{{/link-to}}
       <button type="submit" class="button primary">Save</button>
     </p>

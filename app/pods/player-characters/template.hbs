@@ -1,7 +1,7 @@
 <div class="sidebar">
   <header>
     <h2>Player Characters</h2>
-    {{#link-to 'player-characters.new' classNames='button'}}Add{{/link-to}}
+    {{#link-to 'player-characters.details' 'new' classNames='button'}}Add{{/link-to}}
   </header>
   <ul class="content">
     {{#each (sort-by 'name' (reject-by 'isNew' true model)) as |pc|}}
