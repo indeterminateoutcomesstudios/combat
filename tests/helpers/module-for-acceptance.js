@@ -10,12 +10,19 @@ export default function(name, options = {}) {
     beforeEach() {
       this.application = startApp();
 
+      this.store = this.application.__container__.lookup('service:store');
+
       if (options.beforeEach) {
         return options.beforeEach.apply(this, arguments);
       }
     },
 
     afterEach() {
+      Ember.run(() => {
+        this.store.unloadAll();
+        window.localStorage.clear();
+      });
+
       let afterEach = options.afterEach && options.afterEach.apply(this, arguments);
       return Promise.resolve(afterEach).then(() => destroyApp(this.application));
     }
