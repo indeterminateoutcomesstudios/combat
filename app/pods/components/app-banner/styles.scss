@@ -1,15 +1,25 @@
-.banner {
+& {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-shrink: 0;
   height: 36px;
   padding: 0 $spacing-comfy;
+  -webkit-app-region: drag;
+  -webkit-user-select: none;
 
   background: $color-primary;
 
   color: $color-primary-light;
   font-size: 1.6rem;
+
+  &.electron {
+    padding-left: 78px;
+  }
+
+  nav {
+    -webkit-app-region: no-drag;
+  }
 }
 
 h1 {
