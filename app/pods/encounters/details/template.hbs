@@ -9,16 +9,15 @@
     {{list-popover label='Add Monster' model=model.monsters onSelect=(route-action 'addMonster')}}
   </p>
 </div>
-<h2>Combatants</h2>
+<h3>Combatants</h3>
 <table>
   <thead>
-    <tr class="form inline">
-      <th style="width: 32px;"><!-- Turn Indicator --></th>
-      <th class="label em" style="width: 35%">Name</th>
+    <tr class="form subtle">
+      <th style="width: calc(32px + 0.5rem);"><!-- Turn Indicator --></th>
+      <th class="label em" style="width: 30%"></th>
       <th class="label">HP</th>
-      <th class="label">Max. HP</th>
-      <th class="label">Init.</th>
       <th class="label">AC</th>
+      <th class="label">Init.</th>
       <th style="width: 32px;"><!-- Actions --></th>
     </tr>
   </thead>

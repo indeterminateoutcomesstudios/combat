@@ -6,23 +6,22 @@ table {
 
 th {
   padding: $spacing-comfy $spacing-close;
-  text-align: left;
 }
 
 td {
   padding: $spacing-normal 0;
 
-  &:not(.actions) {
-    padding-right: $spacing-comfy;
-  }
+  // &:not(.actions) {
+  //   padding-right: $spacing-comfy;
+  // }
 
   &.em {
     color: $color-foreground;
   }
 
-  [type=number] {
-    padding-left: $spacing-normal;
-  }
+  // [type=number] {
+  //   padding-left: $spacing-normal;
+  // }
 
 }
 
@@ -58,12 +57,12 @@ td {
   padding-left: $spacing-normal * 2;
 }
 
-.row-bloodied .hp {
+.row-bloodied .hit-points {
   color: #b34f4f;
 }
 
 .row-unconscious {
-  input {
+  input, td {
     color: $color-background-light;
   }
   .em {

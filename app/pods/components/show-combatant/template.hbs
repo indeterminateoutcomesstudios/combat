@@ -1,43 +1,37 @@
-<tr class="form inline row-combatant {{if model.turn 'row-turn'}} {{if model.bloodied 'row-bloodied'}} {{if model.unconscious 'row-unconscious'}}">
-  <td>
+<tr class="form subtle row-combatant {{if model.turn 'row-turn'}} {{if model.bloodied 'row-bloodied'}} {{if model.unconscious 'row-unconscious'}}">
+  <td class="action">
     <a href {{action (action onSetTurn)}} class="button tiny set-turn">{{if model.turn '>'}}</a>
   </td>
   <td class="em">
-    <label for="name">Name</label>
     {{input value=(readonly model.name)
       key-up=(action actions.commitIfEnter)
       focus-out=(action (mut model.name))
       placeholder='–'}}
   </td>
-  <td>
-    <label for="currentHitPoints">Current HP</label>
+  <td class="hit-points">
     {{input value=(readonly model.currentHitPoints)
       key-up=(action actions.commitIfEnter)
       focus-out=(action (mut model.currentHitPoints))
-      type='number' classNames='hp' placeholder='–'}}
-  </td>
-  <td>
-    <label for="hitPoints">Maximum HP</label>
+      type='number' classNames='hp-current' placeholder='–'}}
+    <span>/</span>
     {{input value=(readonly model.hitPoints)
       key-up=(action actions.commitIfEnter)
       focus-out=(action (mut model.hitPoints))
-      type='number' classNames='hp' placeholder='–'}}
+      type='number' classNames='hp-total' placeholder='–'}}
   </td>
-  <td>
-    <label for="initiative">Initiative</label>
-    {{input value=(readonly model.initiative)
-      key-up=(action actions.commitIfEnter)
-      focus-out=(action (mut model.initiative))
-      type='number' placeholder='–'}}
-  </td>
-  <td>
-    <label for="armorClass">Armor Class</label>
+  <td class="other">
     {{input value=(readonly model.armorClass)
       key-up=(action actions.commitIfEnter)
       focus-out=(action (mut model.armorClass))
       type='number' placeholder='–'}}
   </td>
-  <td>
+  <td class="other">
+    {{input value=(readonly model.initiative)
+      key-up=(action actions.commitIfEnter)
+      focus-out=(action (mut model.initiative))
+      type='number' placeholder='–'}}
+  </td>
+  <td class="action">
     <a href {{action (action onDelete)}} class="button tiny danger">&times;</a>
   </td>
 </tr>
@@ -47,7 +41,6 @@
     <td class="inputesque">{{attack.name}}</td>
     <td class="inputesque">{{format-modifier attack.attackBonus}}</td>
     <td class="inputesque">{{format-modifier attack.damageBonus}}</td>
-    <td></td>
     <td></td>
     <td></td>
   </tr>

@@ -1,34 +1,13 @@
 form, .form {
 
-  &:not(tr) {
-    display: flex;
-    flex-direction: column;
-  }
-
-  p:not(.sub):not(.actions) {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    padding-bottom: $spacing-comfy;
-    width: 100%;
-  }
-
-  label {
-    order: 1;
-  }
-
   input, textarea, table {
-    order: 2;
     background: transparent;
     outline: none;
     color: currentColor;
   }
 
   input {
-    margin-left: $spacing-comfy;
-    padding: 0 $spacing-close;
-    position: relative;
-    width: calc(100% - #{$spacing-comfy});
+    width: 100%;
 
     border: none;
     border-bottom: 1px solid $color-background-bright;
@@ -36,22 +15,13 @@ form, .form {
     font-size: 2.2rem;
   }
 
-  [type=number] {
-
+  input[type=number] {
     // lnum: "lining figures", or the non-old-style numbers
     // tnum: "tabular figures", or numbers of equal width
     font-feature-settings: 'lnum', 'tnum';
-
-    &:not(:focus):not(:hover)::-webkit-inner-spin-button,
-    &:not(:focus):not(:hover)::-webkit-outer-spin-button {
-      -webkit-appearance: none;
-    }
-
   }
 
   textarea {
-    flex-grow: 1;
-    margin-left: $spacing-comfy;
     padding: $spacing-close $spacing-normal;
     resize: none;
 
@@ -63,47 +33,180 @@ form, .form {
 
   input:focus,
   textarea:focus {
-    background-image: radial-gradient(
-      ellipse 50% 1.5rem at 50% 100%,
-      rgba($color-primary, 0.25),
-      rgba($color-primary, 0)
-    );
-    border-color: $color-primary;
     color: white;
+  }
 
-    + label {
-      color: $color-primary-light;
+  .em {
+    input {
+      padding: 0 $spacing-close;
     }
   }
 
-  .column {
+  .other {
+    text-align: center;
+    input {
+      padding-left: 15px;
+      width: 6.5rem;
+      text-align: center;
+    }
+  }
+
+  .hit-points {
     display: flex;
-    flex-shrink: 0;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 50%;
+    align-items: baseline;
+
+    font-size: 2.2rem;
+
+    .hp-current,
+    .hp-total {
+      position: relative;
+    }
+
+    .hp-current {
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        position: absolute;
+        left: 0;
+        bottom: 2px;
+      }
+    }
+
+    .hp-total {
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        position: absolute;
+        right: 0;
+        bottom: 2px;
+        font-size: 2.2rem;
+      }
+    }
+
+    .hp-current {
+      padding-right: 0.5rem;
+
+      text-align: right;
+    }
+
+    .hp-total {
+      padding-bottom: 0.2rem;
+      padding-left: 0.5rem;
+
+      font-size: 1.6rem;
+      text-align: left;
+    }
   }
 
-  .column + .column {
-    padding-left: $spacing-comfy * 2;
-  }
+  &.subtle {
 
-  &.inline {
-    flex-direction: row;
-
-    label {
-      display: none;
+    td:not(.action) {
+      padding: $spacing-normal $spacing-close;
     }
 
     input {
 
+      border-bottom-color: transparent;
+
       &:focus {
-        border-color: $color-primary;
+        border-bottom-color: $color-background-bright;
+      }
+
+    }
+
+  }
+
+  &.traditional {
+
+    display: flex;
+    flex-direction: column;
+
+    p:not(.sub):not(.actions) {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      padding-bottom: $spacing-comfy;
+      width: 100%;
+    }
+
+    label {
+      order: 1;
+    }
+
+    input {
+      order: 2;
+    }
+
+    input {
+      margin-left: $spacing-comfy;
+      padding: 0 $spacing-close;
+      position: relative;
+      width: calc(100% - #{$spacing-comfy});
+    }
+
+    [type=number] {
+
+      padding-left: 15px;
+
+      text-align: center;
+
+      // &:not(:focus):not(:hover)::-webkit-inner-spin-button,
+      // &:not(:focus):not(:hover)::-webkit-outer-spin-button {
+      //   -webkit-appearance: none;
+      //   margin-right: 15px;
+      // }
+
+    }
+
+    textarea {
+      flex-grow: 1;
+      margin-left: $spacing-comfy;
+    }
+
+    input:focus,
+    textarea:focus {
+
+      background-image: radial-gradient(
+        ellipse 50% 1.5rem at 50% 100%,
+        rgba($color-primary, 0.25),
+        rgba($color-primary, 0)
+      );
+      border-color: $color-primary;
+      color: white;
+
+      + label {
+        color: $color-primary-light;
       }
     }
 
-    p + p {
-      padding-left: $spacing-normal;
+    .column {
+      display: flex;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 50%;
+    }
+
+    .column + .column {
+      padding-left: $spacing-comfy * 2;
+    }
+
+    &.inline {
+      flex-direction: row;
+
+      label {
+        display: none;
+      }
+
+      input {
+
+        &:focus {
+          border-color: $color-primary;
+        }
+      }
+
+      p + p {
+        padding-left: $spacing-normal;
+      }
+
     }
 
   }
