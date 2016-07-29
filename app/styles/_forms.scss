@@ -131,7 +131,7 @@ form, .form {
       order: 1;
     }
 
-    input {
+    input, textarea {
       order: 2;
     }
 
@@ -189,24 +189,24 @@ form, .form {
       padding-left: $spacing-comfy * 2;
     }
 
-    &.inline {
-      flex-direction: row;
+  }
 
-      label {
-        display: none;
+  &.inline {
+    flex-direction: row;
+
+    label {
+      display: none;
+    }
+
+    input {
+
+      &:focus {
+        border-color: $color-primary;
       }
+    }
 
-      input {
-
-        &:focus {
-          border-color: $color-primary;
-        }
-      }
-
-      p + p {
-        padding-left: $spacing-normal;
-      }
-
+    p + p {
+      padding-left: $spacing-normal;
     }
 
   }

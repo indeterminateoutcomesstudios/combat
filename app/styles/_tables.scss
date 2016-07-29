@@ -5,7 +5,7 @@ table {
 }
 
 th {
-  padding: $spacing-comfy $spacing-close;
+  padding: $spacing-comfy $spacing-close 0;
 }
 
 td {
@@ -52,9 +52,14 @@ td {
   }
 }
 
-.inputesque {
+.inputesque-text {
   padding: $spacing-close 0;
   padding-left: $spacing-normal * 2;
+}
+
+.inputesque-number {
+  padding: $spacing-close 0;
+  text-align: center;
 }
 
 .row-bloodied .hit-points {

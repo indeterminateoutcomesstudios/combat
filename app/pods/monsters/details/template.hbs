@@ -1,7 +1,7 @@
 <header>
   <h2>Monster</h2>
 </header>
-<form {{action (route-action 'save') on='submit'}}>
+<form {{action (route-action 'save') on='submit'}} class="traditional">
   <div class="subheader">
     <p class="sub" style="color: white; font-size: 3.2rem">
       {{if model.isNew 'Add Monster' model.name}}
