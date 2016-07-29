@@ -6,6 +6,13 @@ module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     babel: {
       includePolyfill: true
+    },
+    svgstore: {
+      excludeSourceFiles: true,
+      files: {
+        sourceDirs: [ 'public/icons' ],
+        outputFile: '/assets/icons.svg',
+      }
     }
   });
 

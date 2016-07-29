@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke: #000;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+    </style>
+  </defs>
+  <title>defense</title>
+  <g id="defense">
+    <path id="shield" class="cls-1" d="M15.5,5.5c-3.5,0-4.5-2-5.5-2s-2,2-5.5,2c0,9.94,5.5,11,5.5,11S15.5,15.44,15.5,5.5Z"/>
+  </g>
+</svg>

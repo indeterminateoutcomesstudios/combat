@@ -28,14 +28,12 @@
     margin-left: $spacing-comfy;
   }
 
-  &.tiny {
-    height: 22px;
-    width: 22px;
+  &.icon {
+    height: 20px;
+    width: 20px;
     margin-left: $spacing-normal;
     padding: 0;
-    justify-content: center;
-
-    border-radius: 100px;
+    border-radius: 11px;
   }
 
 }

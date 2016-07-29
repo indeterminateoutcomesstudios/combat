@@ -1,6 +1,8 @@
 <tr class="form subtle row-combatant {{if model.turn 'row-turn'}} {{if model.bloodied 'row-bloodied'}} {{if model.unconscious 'row-unconscious'}}">
   <td class="action">
-    <a href {{action (action onSetTurn)}} class="button tiny set-turn">{{if model.turn '>'}}</a>
+    <a href {{action (action onSetTurn)}} class="button icon set-turn">
+      {{icon (if model.turn 'combat' 'blank')}}
+    </a>
   </td>
   <td class="em">
     {{input value=(readonly model.name)
@@ -32,7 +34,7 @@
       type='number' placeholder='–'}}
   </td>
   <td class="action">
-    <a href {{action (action onDelete)}} class="button tiny danger">&times;</a>
+    <a href {{action (action onDelete)}} class="button icon danger">{{icon 'delete'}}</a>
   </td>
 </tr>
 {{#each model.attacks as |attack|}}

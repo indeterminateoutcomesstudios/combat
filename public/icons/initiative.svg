@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #000;
+        stroke-linecap: round;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <title>initiative</title>
+  <g id="initiative">
+    <path id="hourglass" class="cls-1" d="M14.5,3.5h-9c0,3.5,3,4,3,6.5s-3,3-3,6.5h9c0-3.5-3-4-3-6.5S14.5,7,14.5,3.5Z"/>
+  </g>
+</svg>

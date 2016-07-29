@@ -30,7 +30,7 @@
 <p style="margin-left: -1.5rem;">
   <h3>
     Attacks
-    <a href {{action (action onAddAttack)}} class="button tiny">+</a>
+    <a href {{action (action onAddAttack)}} class="button icon">{{icon 'add'}}</a>
   </h3>
   {{#if attacks.length}}
     <table style="margin-left: 1.0rem; width: calc(100% - 1.0rem)">
@@ -61,7 +61,7 @@
                 focus-out=(action (mut attack.damageBonus)) placeholder='–'}}
             </td>
             <td>
-              <a href {{action (action 'deleteAttack' attack)}} class="button tiny danger">&times;</a>
+              <a href {{action (action 'deleteAttack' attack)}} class="button icon danger">{{icon 'delete'}}</a>
             </td>
           </tr>
         {{/each}}

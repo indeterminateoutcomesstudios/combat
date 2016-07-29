@@ -48,6 +48,7 @@ td {
   color: $color-background-light;
 
   .row-turn & {
+    border-color: mix($color-foreground, $color-background-medium);
     color: $color-foreground;
   }
 }
