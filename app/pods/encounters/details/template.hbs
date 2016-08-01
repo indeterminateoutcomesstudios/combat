@@ -10,23 +10,7 @@
   </p>
 </div>
 <h3>Combatants</h3>
-<table>
-  <thead>
-    <tr class="form subtle">
-      <th style="width: calc(32px + 0.5rem);"><!-- Turn Indicator --></th>
-      <th class="label em" style="width: 30%"></th>
-      <th class="label">{{icon 'heart'}}</th>
-      <th class="label">{{icon 'defense'}}</th>
-      <th class="label">{{icon 'initiative'}}</th>
-      <th style="width: 32px;"><!-- Actions --></th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each model.encounter.arrangedCombatants as |part|}}
-      {{show-combatant model=part
-        onDelete=(route-action 'deleteParticipant' part)
-        onUpdate=(route-action 'saveParticipant' part)
-        onSetTurn=(route-action 'setTurn' part)}}
-    {{/each}}
-  </tbody>
-</table>
+{{list-combatants combatants=model.encounter.arrangedCombatants
+  onDelete=(route-action 'deleteParticipant')
+  onUpdate=(route-action 'saveParticipant')
+  onSetTurn=(route-action 'setTurn')}}

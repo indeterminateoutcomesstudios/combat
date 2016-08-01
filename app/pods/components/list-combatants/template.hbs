@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <tr class="form subtle">
+      <th style="width: calc(32px + 0.5rem);"><!-- Turn Indicator --></th>
+      <th class="label em" style="width: 30%"></th>
+      <th class="label">{{icon 'heart'}}</th>
+      <th class="label">{{icon 'defense'}}</th>
+      <th class="label">{{icon 'initiative'}}</th>
+      <th style="width: 32px;"><!-- Actions --></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each combatants as |combatant|}}
+      {{show-combatant model=combatant
+        onDelete=(action onDelete combatant)
+        onUpdate=(action onUpdate combatant)
+        onSetTurn=(action onSetTurn combatant)}}
+    {{/each}}
+  </tbody>
+</table>
