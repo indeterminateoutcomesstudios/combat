@@ -11,22 +11,16 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    async addMonster(combatant) {
+    async addPC(pc) {
+      let { encounter } = this.currentModel;
+      await encounter.addCombatant(pc, pc.get('name')).save();
+      await encounter.save();
+    },
+    async addMonster(monster) {
       let { encounter } = this.currentModel,
-          combatants = encounter.get('combatants'),
-          name = this._generateName(combatant.get('name')),
-          encMonster = this.store.createRecord('combatant', {
-            ...combatant.toJSON(), name,
-            currentHitPoints: combatant.get('hitPoints')
-          });
-
-      if (combatant.get('attacks')) {
-        encMonster.set('attacks', combatant.get('attacks'));
-      }
-
-      combatants.pushObject(encMonster);
-      await encMonster.save()
-      encounter.save();
+          name = this._generateName(monster.get('name'));
+      await encounter.addCombatant(monster, name).save();
+      await encounter.save();
     },
     setTurn(combatant) {
       let { encounter } = this.currentModel,

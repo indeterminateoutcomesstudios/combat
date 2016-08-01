@@ -16,6 +16,19 @@ export default Model.extend({
           +b.get('initiative') - +a.get('initiative')),
         ...this.get('combatants').filterBy('unconscious')
       ];
-    })
+    }),
+
+  addCombatant(combatant, name) {
+    let newCombatant = this.get('combatants').createRecord({
+      ...combatant.toJSON(), name,
+      currentHitPoints: combatant.get('hitPoints')
+    });
+
+    if (combatant.get('attacks')) {
+      newCombatant.set('attacks', combatant.get('attacks'));
+    }
+
+    return newCombatant;
+  }
 
 });
