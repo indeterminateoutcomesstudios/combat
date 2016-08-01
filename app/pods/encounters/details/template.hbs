@@ -9,7 +9,6 @@
     {{list-popover label='Add Monster' model=model.monsters onSelect=(route-action 'addMonster')}}
   </p>
 </div>
-<h3>Combatants</h3>
 {{list-combatants combatants=model.encounter.arrangedCombatants
   onDelete=(route-action 'deleteParticipant')
   onUpdate=(route-action 'saveParticipant')

@@ -1,0 +1,50 @@
+.row-attack {
+  display: none;
+
+  font-size: 1.8rem;
+
+  &.row-turn {
+    display: table-row;
+  }
+}
+
+.set-turn {
+  border-color: currentColor;
+  color: $color-background-light;
+}
+
+.row-turn {
+
+  &:not(.row-attack) td {
+    color: $color-foreground;
+  }
+
+  .set-turn {
+    border-color: mix($color-foreground, $color-background-medium);
+    color: $color-foreground;
+  }
+
+}
+
+.inputesque-text {
+  padding: $spacing-close 0;
+  padding-left: $spacing-normal * 2;
+}
+
+.inputesque-number {
+  padding: $spacing-close 0;
+  text-align: center;
+}
+
+.row-bloodied .hit-points {
+  color: #b34f4f;
+}
+
+.row-unconscious {
+  input, td {
+    color: $color-background-light;
+  }
+  .em {
+    text-decoration: line-through;
+  }
+}

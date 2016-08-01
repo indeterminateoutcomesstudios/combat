@@ -2,76 +2,25 @@ table {
   border-collapse: collapse;
   table-layout: fixed;
   width: 100%;
+
+  .h1, .h2, .h3 {
+    margin: 0;
+  }
 }
 
 th {
   padding: $spacing-comfy $spacing-close 0;
+
+  &.hX {
+    padding-left: 0;
+  }
 }
 
 td {
   padding: $spacing-normal 0;
 
-  // &:not(.actions) {
-  //   padding-right: $spacing-comfy;
-  // }
-
   &.em {
     color: $color-foreground;
   }
 
-  // [type=number] {
-  //   padding-left: $spacing-normal;
-  // }
-
-}
-
-// Encounter styles (located here because component CSS doesn't work with an
-// empty `tagName`)
-
-.row-combatant + .row-attack td,
-.row-attack + .row-combatant td {
-  // border-top: 1px solid $color-background-light;
-}
-
-.row-attack {
-  display: none;
-
-  font-size: 1.8rem;
-
-  &.row-turn {
-    display: table-row;
-  }
-}
-
-.set-turn {
-  border-color: currentColor;
-  color: $color-background-light;
-
-  .row-turn & {
-    border-color: mix($color-foreground, $color-background-medium);
-    color: $color-foreground;
-  }
-}
-
-.inputesque-text {
-  padding: $spacing-close 0;
-  padding-left: $spacing-normal * 2;
-}
-
-.inputesque-number {
-  padding: $spacing-close 0;
-  text-align: center;
-}
-
-.row-bloodied .hit-points {
-  color: #b34f4f;
-}
-
-.row-unconscious {
-  input, td {
-    color: $color-background-light;
-  }
-  .em {
-    text-decoration: line-through;
-  }
 }
