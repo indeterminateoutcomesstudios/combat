@@ -19,7 +19,7 @@
 .main {
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 0 $spacing-comfy;
+  padding: $spacing-comfy $spacing-comfy 0;
   background: $color-background-medium;
 }
 

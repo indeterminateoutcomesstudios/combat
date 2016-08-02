@@ -16,10 +16,12 @@
       }
     </style>
   </defs>
-  <title>initiative</title>
+  <title>bonus-damage</title>
   <g>
-    <path class="a" d="M14.5,3.5h-9c0,4.5,3,4,3,6.5s-3,2-3,6.5h9c0-4.5-3-4-3-6.5S14.5,8,14.5,3.5Z"/>
-    <line class="a" x1="4.5" y1="3.5" x2="15.5" y2="3.5"/>
-    <line class="b" x1="4.5" y1="16.5" x2="15.5" y2="16.5"/>
+    <g>
+      <line class="a" x1="14.5" y1="3.5" x2="14.5" y2="7.5"/>
+      <line class="a" x1="12.5" y1="5.5" x2="16.5" y2="5.5"/>
+    </g>
+    <path class="b" d="M12.5,12.5a4,4,0,0,1-8,0c0-3.5,4-6,4-9C8.5,6.5,12.5,9,12.5,12.5Z"/>
   </g>
 </svg>

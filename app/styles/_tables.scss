@@ -3,16 +3,22 @@ table {
   table-layout: fixed;
   width: 100%;
 
-  .h1, .h2, .h3 {
-    margin: 0;
+  .button.icon {
+    display: inline-flex;
+    margin-left: 0;
+    vertical-align: text-top;
+  }
+
+  .action {
+    text-align: center;
   }
 }
 
 th {
   padding: $spacing-comfy $spacing-close 0;
 
-  &.hX {
-    padding-left: 0;
+  &.em {
+    text-align: left;
   }
 }
 

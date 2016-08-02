@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
   <defs>
     <style>
-      .cls-1 {
+      .a {
         fill: none;
         stroke: #000;
         stroke-linecap: round;
@@ -10,8 +10,8 @@
     </style>
   </defs>
   <title>delete</title>
-  <g id="delete">
-    <line class="cls-1" x1="6.18" y1="14" x2="13.82" y2="6"/>
-    <line class="cls-1" x1="6.18" y1="6" x2="13.82" y2="14"/>
+  <g>
+    <line class="a" x1="6.18" y1="14" x2="13.82" y2="6"/>
+    <line class="a" x1="6.18" y1="6" x2="13.82" y2="14"/>
   </g>
 </svg>

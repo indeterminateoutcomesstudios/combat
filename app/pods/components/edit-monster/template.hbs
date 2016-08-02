@@ -28,18 +28,23 @@
 </div>
 {{!-- HACK: These margins help align things; probably better served elsewhere. --}}
 <p style="margin-left: -1.5rem;">
-  <h3>
-    Attacks
-    <a href {{action (action onAddAttack)}} class="button icon">{{icon 'add'}}</a>
-  </h3>
   {{#if attacks.length}}
     <table style="margin-left: 1.0rem; width: calc(100% - 1.0rem)">
+      <colgroup>
+        <col>
+        <col style="width: 12.0rem;">
+        <col style="width: 12.0rem;">
+        <col style="width: 32px;">
+      </colgroup>
       <thead>
         <tr class="form inline">
-          <th class="label em" style="width: 50%">Name</th>
-          <th class="label">Attack Bonus</th>
-          <th class="label">Damage Bonus</th>
-          <th style="width: 32px;"></th>
+          <th class="label em">
+            Attacks
+            <a href {{action (action onAddAttack)}} class="button icon">{{icon 'add'}}</a>
+          </th>
+          <th class="label">{{icon 'bonus-attack'}}</th>
+          <th class="label">{{icon 'bonus-damage'}}</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -60,7 +65,7 @@
               {{input value=attack.damageBonus type='number'
                 focus-out=(action (mut attack.damageBonus)) placeholder='–'}}
             </td>
-            <td>
+            <td class="action">
               <a href {{action (action 'deleteAttack' attack)}} class="button icon danger">{{icon 'delete'}}</a>
             </td>
           </tr>

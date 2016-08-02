@@ -9,15 +9,15 @@
       }
     </style>
   </defs>
-  <title>combat</title>
+  <title>bonus-attack</title>
   <g>
     <g>
       <line class="a" x1="4.34" y1="4.34" x2="15.66" y2="15.66"/>
       <line class="a" x1="11.41" y1="14.24" x2="14.24" y2="11.41"/>
     </g>
     <g>
-      <line class="a" x1="15.66" y1="4.34" x2="4.34" y2="15.66"/>
-      <line class="a" x1="5.76" y1="11.41" x2="8.59" y2="14.24"/>
+      <line class="a" x1="14.5" y1="3.5" x2="14.5" y2="7.5"/>
+      <line class="a" x1="12.5" y1="5.5" x2="16.5" y2="5.5"/>
     </g>
   </g>
 </svg>
