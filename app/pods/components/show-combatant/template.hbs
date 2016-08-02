@@ -41,8 +41,14 @@
   <tr class="form inline row-attack {{if model.turn 'row-turn'}}">
     <td></td>
     <td class="inputesque-text">{{attack.name}}</td>
-    <td class="inputesque-number">{{format-modifier attack.attackBonus}}</td>
-    <td class="inputesque-number">{{format-modifier attack.damageBonus}}</td>
+    <td class="inputesque-number">
+      {{icon 'bonus-attack'}}
+      {{format-modifier attack.attackBonus}}
+    </td>
+    <td class="inputesque-number">
+      {{icon 'bonus-damage'}}
+      {{format-modifier attack.damageBonus}}
+    </td>
     <td></td>
     <td></td>
   </tr>
