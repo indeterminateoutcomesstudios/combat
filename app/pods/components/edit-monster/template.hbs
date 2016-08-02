@@ -28,49 +28,50 @@
 </div>
 {{!-- HACK: These margins help align things; probably better served elsewhere. --}}
 <p style="margin-left: -1.5rem;">
-  {{#if attacks.length}}
-    <table style="margin-left: 1.0rem; width: calc(100% - 1.0rem)">
-      <colgroup>
-        <col>
-        <col style="width: 12.0rem;">
-        <col style="width: 12.0rem;">
-        <col style="width: 32px;">
-      </colgroup>
-      <thead>
+  <table id="attacks" style="margin-left: 1.0rem; width: calc(100% - 1.0rem)">
+    <colgroup>
+      <col>
+      <col style="width: 12.0rem;">
+      <col style="width: 12.0rem;">
+      <col style="width: 32px;">
+    </colgroup>
+    <thead>
+      <tr class="form inline">
+        <th class="label em">
+          Attacks
+          <a href {{action (action onAddAttack)}} id="attacks_add" class="button icon">{{icon 'add'}}</a>
+        </th>
+        <th class="label">{{icon (if attacks.length 'bonus-attack' 'blank')}}</th>
+        <th class="label">{{icon (if attacks.length 'bonus-damage' 'blank')}}</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#unless attacks.length}}
+        <tr><td colspan="4" class="empty">No attacks added.</td></tr>
+      {{/unless}}
+      {{#each attacks as |attack|}}
         <tr class="form inline">
-          <th class="label em">
-            Attacks
-            <a href {{action (action onAddAttack)}} class="button icon">{{icon 'add'}}</a>
-          </th>
-          <th class="label">{{icon 'bonus-attack'}}</th>
-          <th class="label">{{icon 'bonus-damage'}}</th>
-          <th></th>
+          <td class="em">
+            <label>Name</label>
+            {{input value=attack.name
+              focus-out=(action (mut attack.name)) placeholder='–'}}
+          </td>
+          <td>
+            <label>Attack Bonus</label>
+            {{input value=attack.attackBonus type='number'
+              focus-out=(action (mut attack.attackBonus)) placeholder='–'}}
+          </td>
+          <td>
+            <label>Damage Bonus</label>
+            {{input value=attack.damageBonus type='number'
+              focus-out=(action (mut attack.damageBonus)) placeholder='–'}}
+          </td>
+          <td class="action">
+            <a href {{action (action 'deleteAttack' attack)}} class="button icon danger">{{icon 'delete'}}</a>
+          </td>
         </tr>
-      </thead>
-      <tbody>
-        {{#each attacks as |attack|}}
-          <tr class="form inline">
-            <td class="em">
-              <label>Name</label>
-              {{input value=attack.name
-                focus-out=(action (mut attack.name)) placeholder='–'}}
-            </td>
-            <td>
-              <label>Attack Bonus</label>
-              {{input value=attack.attackBonus type='number'
-                focus-out=(action (mut attack.attackBonus)) placeholder='–'}}
-            </td>
-            <td>
-              <label>Damage Bonus</label>
-              {{input value=attack.damageBonus type='number'
-                focus-out=(action (mut attack.damageBonus)) placeholder='–'}}
-            </td>
-            <td class="action">
-              <a href {{action (action 'deleteAttack' attack)}} class="button icon danger">{{icon 'delete'}}</a>
-            </td>
-          </tr>
-        {{/each}}
-      </tbody>
-    </table>
-  {{/if}}
+      {{/each}}
+    </tbody>
+  </table>
 </p>

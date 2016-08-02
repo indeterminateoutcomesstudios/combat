@@ -19,6 +19,10 @@ th {
 
   &.em {
     text-align: left;
+
+    > .icon {
+      margin-left: $spacing-close;
+    }
   }
 }
 
@@ -31,6 +35,14 @@ td {
 
   .icon {
     vertical-align: text-bottom;
+  }
+
+  &.empty {
+    height: 51px; // The height of an input row.
+    padding-left: $spacing-comfy;
+
+    color: $color-background-bright;
+    font-size: 1.8rem;
   }
 
 }
