@@ -15,7 +15,7 @@
 
 .row-turn {
 
-  &:not(.row-attack) td {
+  &:not(.row-attack):not(.row-unconscious) td {
     color: $color-foreground;
   }
 
