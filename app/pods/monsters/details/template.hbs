@@ -5,7 +5,7 @@
     </p>
     <p class="actions">
       {{#unless model.isNew}}
-        <button class="button danger" {{action (route-action 'delete' model)}}>Delete</button>
+        <button class="button danger" {{action (toggle-action 'showDeleteConfirmationModal' this)}}>Delete</button>
       {{/unless}}
       {{#link-to 'monsters.index' classNames='button'}}Cancel{{/link-to}}
       <button type="submit" class="button primary">Save</button>
@@ -15,3 +15,15 @@
     onSave=(route-action 'save')
     onAddAttack=(route-action 'addAttack')}}
 </form>
+{{#if showDeleteConfirmationModal}}
+<div class="modal-backdrop"></div>
+  <form class="modal traditional">
+    <p>
+      <label class="wordy">Are you sure you want to delete this monster?</label>
+    </p>
+    <p class="actions">
+      <button type="button" class="button subtle" {{action (toggle-action 'showDeleteConfirmationModal' this)}}>No</button>
+      <button type="submit" class="button danger" {{action (route-action 'delete' model)}}>Yes</button>
+    </p>
+  </form>
+{{/if}}
