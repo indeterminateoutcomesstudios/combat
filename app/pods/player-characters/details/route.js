@@ -10,7 +10,10 @@ export default Ember.Route.extend(DataRoute, {
   },
 
   setupController(controller, model) {
-    controller.set('name', model.get('name'));
+    controller.setProperties({
+      name: model.get('name'),
+      showDeleteConfirmationModal: false
+    });
     this._super(controller, model);
   },
 
@@ -18,12 +21,9 @@ export default Ember.Route.extend(DataRoute, {
     async save() {
       this.currentModel.set('name', this.controller.get('name'));
       await this.currentModel.save();
-      this.transitionTo('player-characters.index');
+      this.transitionTo('player-characters.details', this.currentModel.get('id'));
     },
     async delete(pc) {
-      if (!confirm('Are you sure you wish to delete this PC?')) {
-        return;
-      }
       await pc.destroyRecord();
       this.transitionTo('player-characters');
     }
