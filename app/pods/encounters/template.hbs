@@ -1,10 +1,10 @@
 <div class="sidebar">
   <header>
     <h2>Encounters</h2>
-    <button {{action (route-action 'create')}} class='button'>Add</button>
+    {{#link-to 'encounters.details' 'new' classNames='button'}}Add{{/link-to}}
   </header>
   <ul class="content">
-    {{#each (sort-by 'name' model.encounters) as |encounter|}}
+    {{#each (sort-by 'name' (reject-by 'isNew' true model.encounters)) as |encounter|}}
       <li>
         {{#link-to 'encounters.details' encounter.id}}{{encounter.name}}{{/link-to}}
       </li>

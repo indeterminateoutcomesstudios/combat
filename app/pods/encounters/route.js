@@ -10,15 +10,6 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    async create() {
-      let name;
-      if (!(name = window.prompt('Name:'))) {
-        return;
-      }
-
-      let { id } = await this.store.createRecord('encounter', { name }).save()
-      this.transitionTo('encounters.details', id);
-    },
     async delete(encounter) {
       if (!confirm('Are you sure you wish to delete this encounter?')) {
         return;

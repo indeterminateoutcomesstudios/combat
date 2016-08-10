@@ -10,7 +10,9 @@ export default function(name, options = {}) {
     beforeEach() {
       this.application = startApp();
 
-      this.store = this.application.__container__.lookup('service:store');
+      this.container = this.application.__container__;
+
+      this.store = this.container.lookup('service:store');
 
       if (options.beforeEach) {
         return options.beforeEach.apply(this, arguments);

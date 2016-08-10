@@ -3,14 +3,31 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 
   model({ encounter_id }) {
+    let getEncounter = encounter_id === 'new' ?
+      this.store.createRecord.bind(this.store, 'encounter') :
+      this.store.findRecord.bind(this.store, 'encounter', encounter_id);
     return Ember.RSVP.hash({
-      encounter: this.store.findRecord('encounter', encounter_id),
+      encounter: getEncounter(),
       playerCharacters: this.store.findAll('player-character'),
       monsters: this.store.findAll('monster')
     });
   },
 
+  setupController(controller, model) {
+    this._super(controller, model);
+    controller.setProperties({
+      name: '',
+      showNameModal: model.encounter.get('isNew')
+    });
+  },
+
   actions: {
+    async create() {
+      let { encounter } = this.currentModel;
+      encounter.set('name', this.controller.get('name'));
+      await encounter.save();
+      this.transitionTo('encounters.details', encounter.get('id'));
+    },
     async addPC(pc) {
       let { encounter } = this.currentModel;
       await encounter.addCombatant(pc, pc.get('name')).save();

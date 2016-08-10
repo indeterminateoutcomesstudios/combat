@@ -1,5 +1,9 @@
 form, .form {
 
+  label.wordy {
+    justify-content: center;
+  }
+
   input, textarea, table {
     background: transparent;
     outline: none;
@@ -189,6 +193,13 @@ form, .form {
       padding-left: $spacing-comfy * 2;
     }
 
+  }
+
+  &.modal {
+    input {
+      margin-left: 0;
+      width: 100%;
+    }
   }
 
   &.inline {

@@ -1,0 +1,28 @@
+.modal-backdrop {
+  position: fixed;
+  top: 36px;
+  left: 300px;
+  height: 100%;
+  width: calc(100% - 300px);
+  background-color: transparent;
+  z-index: 1000;
+}
+
+.modal {
+  position: absolute;
+  top: 36px;
+  left: calc(50% + 150px);
+  padding: $spacing-comfy;
+  transform: translateX(-50%);
+  width: 300px;
+  z-index: 1001;
+
+  background-color: $color-background-dim;
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 4px rgba(0, 0, 0, 0.2);
+
+  .actions {
+    justify-content: flex-end;
+  }
+
+}

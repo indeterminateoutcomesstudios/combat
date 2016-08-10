@@ -1,12 +1,27 @@
-<div class="subheader">
-  <p class="sub" style="color: white; font-size: 3.2rem">{{model.encounter.name}}</p>
-  <p class="actions">
-    <button class="button danger" {{action (route-action 'delete' model.encounter)}}>Delete</button>
-    {{list-popover label='Add PC' model=model.playerCharacters onSelect=(route-action 'addPC')}}
-    {{list-popover label='Add Monster' model=model.monsters onSelect=(route-action 'addMonster')}}
-  </p>
-</div>
-{{list-combatants combatants=model.encounter.arrangedCombatants
-  onDelete=(route-action 'deleteParticipant')
-  onUpdate=(route-action 'saveParticipant')
-  onSetTurn=(route-action 'setTurn')}}
+{{#unless model.encounter.isNew}}
+  <div class="subheader">
+    <p class="sub" style="color: white; font-size: 3.2rem">{{model.encounter.name}}</p>
+    <p class="actions">
+      <button class="button danger" {{action (route-action 'delete' model.encounter)}}>Delete</button>
+      {{list-popover label='Add PC' model=model.playerCharacters onSelect=(route-action 'addPC')}}
+      {{list-popover label='Add Monster' model=model.monsters onSelect=(route-action 'addMonster')}}
+    </p>
+  </div>
+  {{list-combatants combatants=model.encounter.arrangedCombatants
+    onDelete=(route-action 'deleteParticipant')
+    onUpdate=(route-action 'saveParticipant')
+    onSetTurn=(route-action 'setTurn')}}
+{{/unless}}
+{{#if showNameModal}}
+  <div class="modal-backdrop"></div>
+  <form class="modal traditional" {{action (route-action 'create') on='submit'}}>
+    <p>
+      {{input id='name' value=name}}
+      <label for="name" class="wordy">Name this new encounter:</label>
+    </p>
+    <p class="actions">
+      {{#link-to 'encounters' classNames='button subtle'}}Cancel{{/link-to}}
+      <button type="submit" class="button primary">Create</button>
+    </p>
+  </form>
+{{/if}}
