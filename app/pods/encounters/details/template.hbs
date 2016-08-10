@@ -45,7 +45,7 @@
     </p>
     <p class="actions">
       <button type="button" class="button subtle" {{action (action (mut showDeleteConfirmationModalFor null))}}>No</button>
-      <button type="submit" class="button danger" {{action (route-action 'deleteParticipant' showDeleteConfirmationModalFor)}}>Yes</button>
+      <button type="submit" class="button danger" {{action (route-action 'deleteCombatant' showDeleteConfirmationModalFor)}}>Yes</button>
     </p>
   </form>
 {{/if}}
