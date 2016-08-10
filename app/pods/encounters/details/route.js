@@ -49,14 +49,12 @@ export default Ember.Route.extend({
     saveParticipant(combatant) {
       combatant.save();
     },
-    async deleteParticipant(combatant) {
-      if (!confirm('Are you sure you wish to delete this combatant?')) {
-        return;
-      }
+    async deleteCombatant(combatant) {
       let { encounter } = this.currentModel;
       encounter.get('combatants').removeObject(combatant);
       await encounter.save()
       combatant.destroyRecord();
+      this.controller.set('showDeleteConfirmationModalFor', null);
     }
   },
 

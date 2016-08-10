@@ -8,7 +8,7 @@
     </p>
   </div>
   {{list-combatants combatants=model.encounter.arrangedCombatants
-    onDelete=(route-action 'deleteParticipant')
+    onDelete=(action (mut showDeleteConfirmationModalFor))
     onUpdate=(route-action 'saveParticipant')
     onSetTurn=(route-action 'setTurn')}}
 {{/unless}}
@@ -22,6 +22,18 @@
     <p class="actions">
       {{#link-to 'encounters' classNames='button subtle'}}Cancel{{/link-to}}
       <button type="submit" class="button primary">Create</button>
+    </p>
+  </form>
+{{/if}}
+{{#if showDeleteConfirmationModalFor}}
+  <div class="modal-backdrop"></div>
+  <form class="modal traditional">
+    <p>
+      <label class="wordy">Are you sure you want to delete {{showDeleteConfirmationModalFor.name}}?</label>
+    </p>
+    <p class="actions">
+      <button type="button" class="button subtle" {{action (action (mut showDeleteConfirmationModalFor null))}}>No</button>
+      <button type="submit" class="button danger" {{action (route-action 'deleteCombatant' showDeleteConfirmationModalFor)}}>Yes</button>
     </p>
   </form>
 {{/if}}
