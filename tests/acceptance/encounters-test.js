@@ -1,4 +1,4 @@
-import FactoryGuy, { make } from 'ember-data-factory-guy';
+import FactoryGuy, { make, makeList } from 'ember-data-factory-guy';
 import { test } from 'qunit';
 import moduleForAcceptance from 'ms-combat/tests/helpers/module-for-acceptance';
 
@@ -42,6 +42,47 @@ test('should cancel encounter creation', async function(assert) {
 
 });
 
+test('should confirm when deleting an encounter', async function(assert) {
+
+  FactoryGuy.cacheOnlyMode();
+  let encounter = make('encounter');
+
+  visit(`/encounters/${encounter.get('id')}`);
+  await click('button:contains("Delete")');
+
+  assert.equal(find('.modal').length, 1, 'showed the "are you sure?" modal');
+
+});
+
+test('should delete an encounter', async function(assert) {
+
+  FactoryGuy.cacheOnlyMode();
+  let encounters = makeList('encounter', 2);
+  let encounter = encounters.objectAt(0);
+
+  visit(`/encounters/${encounter.get('id')}`);
+  click('button:contains("Delete")');
+  await click('form.modal button:contains("Yes")');
+
+  let savedEncounters = await this.store.findAll('encounter');
+  assert.equal(savedEncounters.get('length'), 1, 'deleted the encounter');
+  assert.equal(currentURL(), '/encounters', 'transitioned back to the list');
+
+});
+
+test('should dismiss the "are you sure?" modal when canceling', async function(assert) {
+
+  FactoryGuy.cacheOnlyMode();
+  let encounter = make('encounter');
+
+  visit(`/encounters/${encounter.get('id')}`);
+  click('button:contains("Delete")');
+  await click('form.modal button:contains("No")');
+
+  assert.equal(find('.modal').length, 0, 'dismissed the "are you sure?" modal');
+
+});
+
 test('should confirm removing a combatant', async function(assert) {
 
   FactoryGuy.cacheOnlyMode();
@@ -72,7 +113,7 @@ test('should confirm removing a combatant', async function(assert) {
 //
 // });
 
-test('should dismiss the "are you sure?" modal when canceling', async function(assert) {
+test('should dismiss the "are you sure?" combatant modal when canceling', async function(assert) {
 
   FactoryGuy.cacheOnlyMode();
   let encounter = make('encounter', 'with_combatants');

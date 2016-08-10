@@ -11,9 +11,6 @@ export default Ember.Route.extend({
 
   actions: {
     async delete(encounter) {
-      if (!confirm('Are you sure you wish to delete this encounter?')) {
-        return;
-      }
       encounter.get('combatants').toArray().invoke('destroyRecord');
       await encounter.destroyRecord();
       this.transitionTo('encounters');

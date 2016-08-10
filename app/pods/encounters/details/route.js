@@ -17,7 +17,9 @@ export default Ember.Route.extend({
     this._super(controller, model);
     controller.setProperties({
       name: '',
-      showNameModal: model.encounter.get('isNew')
+      showNameModal: model.encounter.get('isNew'),
+      showDeleteConfirmationModal: false,
+      showDeleteConfirmationModalFor: null
     });
   },
 

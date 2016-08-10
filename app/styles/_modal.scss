@@ -14,7 +14,7 @@
   left: calc(50% + 150px);
   padding: $spacing-comfy;
   transform: translateX(-50%);
-  width: 300px;
+  min-width: 300px;
   z-index: 1001;
 
   background-color: $color-background-dim;

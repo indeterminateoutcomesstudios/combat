@@ -2,7 +2,7 @@
   <div class="subheader">
     <p class="sub" style="color: white; font-size: 3.2rem">{{model.encounter.name}}</p>
     <p class="actions">
-      <button class="button danger" {{action (route-action 'delete' model.encounter)}}>Delete</button>
+      <button class="button danger" {{action (toggle-action 'showDeleteConfirmationModal' this)}}>Delete</button>
       {{list-popover label='Add PC' model=model.playerCharacters onSelect=(route-action 'addPC')}}
       {{list-popover label='Add Monster' model=model.monsters onSelect=(route-action 'addMonster')}}
     </p>
@@ -25,6 +25,18 @@
     </p>
   </form>
 {{/if}}
+{{#if showDeleteConfirmationModal}}
+  <div class="modal-backdrop"></div>
+  <form class="modal traditional">
+    <p>
+      <label class="wordy">Are you sure you want to delete this encounter?</label>
+    </p>
+    <p class="actions">
+      <button type="button" class="button subtle" {{action (toggle-action 'showDeleteConfirmationModal' this)}}>No</button>
+      <button type="submit" class="button danger" {{action (route-action 'delete' model.encounter)}}>Yes</button>
+    </p>
+  </form>
+{{/if}}
 {{#if showDeleteConfirmationModalFor}}
   <div class="modal-backdrop"></div>
   <form class="modal traditional">
@@ -33,7 +45,7 @@
     </p>
     <p class="actions">
       <button type="button" class="button subtle" {{action (action (mut showDeleteConfirmationModalFor null))}}>No</button>
-      <button type="submit" class="button danger" {{action (route-action 'deleteCombatant' showDeleteConfirmationModalFor)}}>Yes</button>
+      <button type="submit" class="button danger" {{action (route-action 'deleteParticipant' showDeleteConfirmationModalFor)}}>Yes</button>
     </p>
   </form>
 {{/if}}
