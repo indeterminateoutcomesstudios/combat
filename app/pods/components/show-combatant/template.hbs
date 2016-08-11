@@ -34,6 +34,11 @@
       type='number' placeholder='–'}}
   </td>
   <td class="action">
+    {{#if model.notes}}
+      <div data-action="notes" {{action (action onShowNotes)}}>{{icon 'notes'}}</div>
+    {{/if}}
+  </td>
+  <td class="action">
     <a href {{action (action onDelete)}} class="button icon danger">{{icon 'delete'}}</a>
   </td>
 </tr>

@@ -10,7 +10,8 @@
   {{list-combatants combatants=model.encounter.arrangedCombatants
     onDelete=(action (mut showDeleteConfirmationModalFor))
     onUpdate=(route-action 'saveParticipant')
-    onSetTurn=(route-action 'setTurn')}}
+    onSetTurn=(route-action 'setTurn')
+    onShowNotes=(action (mut showNotesFor))}}
 {{/unless}}
 {{#if showNameModal}}
   <div class="modal-backdrop"></div>
@@ -46,6 +47,16 @@
     <p class="actions">
       <button type="button" class="button subtle" {{action (action (mut showDeleteConfirmationModalFor null))}}>No</button>
       <button type="submit" class="button danger" {{action (route-action 'deleteCombatant' showDeleteConfirmationModalFor)}}>Yes</button>
+    </p>
+  </form>
+{{/if}}
+{{#if showNotesFor}}
+  <div class="modal-backdrop"></div>
+  <form class="modal traditional">
+    <p class="h3">{{showNotesFor.name}}’s Notes</p>
+    <p>{{showNotesFor.notes}}</p>
+    <p class="actions">
+      <button type="button" class="button subtle" {{action (action (mut showNotesFor null))}}>Close</button>
     </p>
   </form>
 {{/if}}

@@ -7,6 +7,7 @@
   padding: 0 $spacing-comfy;
   -webkit-app-region: drag;
   -webkit-user-select: none;
+  z-index: 2000;
 
   background: $color-primary;
 

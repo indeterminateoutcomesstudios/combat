@@ -1,5 +1,7 @@
 import FactoryGuy from 'ember-data-factory-guy';
 
 FactoryGuy.define('combatant', {
-  default: {}
+  default: {
+    notes: 'Lorem ipsum dolor sit amet.'
+  }
 });

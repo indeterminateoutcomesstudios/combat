@@ -5,6 +5,7 @@
     <col>
     <col>
     <col>
+    <col style="width: 48px;">
     <col style="width: 32px;">
   </colgroup>
   <thead>
@@ -13,7 +14,8 @@
       <th class="label">{{icon 'heart'}}</th>
       <th class="label">{{icon 'defense'}}</th>
       <th class="label">{{icon 'initiative'}}</th>
-      <th style="width: 32px;"><!-- Actions --></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -21,7 +23,8 @@
       {{show-combatant model=combatant
         onDelete=(action onDelete combatant)
         onUpdate=(action onUpdate combatant)
-        onSetTurn=(action onSetTurn combatant)}}
+        onSetTurn=(action onSetTurn combatant)
+        onShowNotes=(action onShowNotes combatant)}}
     {{/each}}
   </tbody>
 </table>

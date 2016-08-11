@@ -13,13 +13,17 @@
   top: 36px;
   left: calc(50% + 150px);
   padding: $spacing-comfy;
-  transform: translateX(-50%);
   min-width: 300px;
+  transform: translateX(-50%);
   z-index: 1001;
 
   background-color: $color-background-dim;
   border-radius: 0 0 4px 4px;
   box-shadow: 0 4px rgba(0, 0, 0, 0.2);
+
+  .h3 {
+    margin: 0;
+  }
 
   .actions {
     justify-content: flex-end;
