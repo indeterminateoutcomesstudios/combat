@@ -16,6 +16,7 @@ form, .form {
     border: none;
     border-bottom: 1px solid $color-background-bright;
 
+    color: $color-foreground;
     font-size: 2.2rem;
   }
 
@@ -32,6 +33,7 @@ form, .form {
     border: 1px solid $color-background-bright;
     border-radius: 4px;
 
+    color: $color-foreground;
     font-size: 1.8rem;
   }
 
@@ -186,11 +188,7 @@ form, .form {
       flex-shrink: 0;
       flex-wrap: wrap;
       justify-content: space-between;
-      width: 50%;
-    }
-
-    .column + .column {
-      padding-left: $spacing-comfy * 2;
+      width: calc(50% - #{$spacing-comfy};
     }
 
   }

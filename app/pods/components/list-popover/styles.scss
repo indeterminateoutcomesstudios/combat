@@ -25,6 +25,7 @@
   box-shadow: 0 4px 0 rgba(black, 0.2);
 
   font-size: 1.8rem;
+  font-style: normal;
 
   &:after {
     content: '';
@@ -45,6 +46,7 @@
 
     &:hover {
       background-color: $color-primary-dark;
+      color: $color-foreground;
     }
   }
 }
