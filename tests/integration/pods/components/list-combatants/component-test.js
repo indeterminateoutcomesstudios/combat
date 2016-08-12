@@ -8,15 +8,14 @@ moduleForComponent('list-combatants', 'Integration | Component | list combatants
 
 test('it renders', function(assert) {
 
-  this.on('delete', Ember.K);
-  this.on('update', Ember.K);
-  this.on('setTurn', Ember.K);
+  this.on('no-op', Ember.K);
   this.set('model', [ {}, {}, {}, {} ]);
   this.render(hbs`
     {{list-combatants combatants=model
-      onDelete=(action 'delete')
-      onUpdate=(action 'update')
-      onSetTurn=(action 'setTurn')
+      onDelete=(action 'no-op')
+      onUpdate=(action 'no-op')
+      onSetTurn=(action 'no-op')
+      onShowNotes=(action 'no-op')
     }}`);
 
   assert.equal(this.$('tbody tr').length, 4, 'shows combatants');
