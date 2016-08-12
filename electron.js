@@ -3,11 +3,13 @@
 
 'use strict';
 
-const electron             = require('electron');
-const path                 = require('path');
-const {app, BrowserWindow} = electron;
-const dirname              = __dirname || path.resolve(path.dirname());
-const emberAppLocation     = `file://${dirname}/dist/index.html`;
+const electron         = require('electron');
+const path             = require('path');
+const dirname          = __dirname || path.resolve(path.dirname());
+const emberAppLocation = `file://${dirname}/dist/index.html`;
+const mainMenu         = require('./electron/menu');
+
+const { app, BrowserWindow, Menu } = electron;
 
 let mainWindow = null;
 
@@ -35,6 +37,8 @@ app.on('ready', function onReady() {
   });
 
   delete mainWindow.module;
+
+  Menu.setApplicationMenu(mainMenu);
 
   // If you want to open up dev tools programmatically, call
   // mainWindow.openDevTools();
