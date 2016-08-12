@@ -28,7 +28,7 @@ const menu = [
       { role: 'copy' },
       { role: 'paste' },
       { role: 'selectall' },
-      { type: 'separator' },
+      { type: 'separator' }
     ]
   },
   {
@@ -37,7 +37,16 @@ const menu = [
       {
         label: `Report an Issue...`,
         click() { shell.openExternal('https://github.com/magic-stash/combat/issues/new'); }
-      }
+      },
+      { type: 'separator' },
+      {
+        label: 'Welcome Guide',
+        click(item, browserWindow) {
+          if (browserWindow) {
+            browserWindow.webContents.send('show:welcome');
+          }
+        }
+      },
     ]
   }
 ];

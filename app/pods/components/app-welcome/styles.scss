@@ -1,0 +1,37 @@
+& {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(67vh - 36px);
+  width: 100%;
+}
+
+> * {
+  margin: $spacing-normal 0;
+}
+
+h2 {
+  color: white;
+  font-size: 2.2rem;
+  font-weight: $type-regular;
+  text-transform: none;
+}
+
+.button {
+  // Since we've got sub-elements that need spacing, we can't use `flex`.
+  display: block;
+  height: 44px;
+  width: 400px;
+  margin-left: 0;
+  margin-right: 0;
+
+  font-size: 1.8rem;
+  line-height: 42px;
+  text-align: center;
+}
+
+em {
+  font-style: normal;
+  font-weight: $type-bold;
+}
