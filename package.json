@@ -64,8 +64,8 @@
       "electron.js",
       "package.json"
     ],
-    "name": null,
-    "platform": null,
+    "name": "Magic Stash: Combat",
+    "platform": "darwin",
     "arch": null,
     "version": null,
     "app-bundle-id": null,
@@ -88,8 +88,8 @@
       "entitlements": null,
       "entitlements-inherit": null
     },
-    "overwrite": null,
-    "prune": null,
+    "overwrite": true,
+    "prune": true,
     "strict-ssl": null,
     "version-string": {
       "CompanyName": null,
