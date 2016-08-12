@@ -62,6 +62,7 @@
   "ember-electron": {
     "WHAT IS THIS?": "Please see the README.md",
     "copy-files": [
+      "electron/*",
       "electron.js",
       "package.json"
     ],
