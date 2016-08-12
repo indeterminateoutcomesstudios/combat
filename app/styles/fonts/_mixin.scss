@@ -1,0 +1,14 @@
+$font-path: '../fonts';
+
+@mixin font-face($family, $style, $font-style, $font-weight) {
+  $font-path: '#{$font-path}/#{$family}-#{$style}';
+  @font-face {
+    font-family: $family;
+    font-style: $font-style;
+    font-weight: $font-weight;
+    src:
+      url('#{$font-path}.woff2') format('woff2'),
+      url('#{$font-path}.woff')  format('woff'),
+      url('#{$font-path}.ttf')   format('ttf');
+  }
+}
