@@ -35,3 +35,14 @@ em {
   font-style: normal;
   font-weight: $type-bold;
 }
+
+.de-em {
+  color: $color-background-bright;
+  font-size: 1.6rem;
+  font-style: normal;
+  text-align: center;
+
+  em {
+    display: block;
+  }
+}
