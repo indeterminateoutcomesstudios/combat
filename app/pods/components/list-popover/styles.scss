@@ -41,8 +41,13 @@
 
   a {
     display: block;
+    overflow: hidden;
+    max-width: 300px;
     padding: $spacing-close $spacing-comfy;
     padding-right: $spacing-comfy * 3;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
 
     &:hover {
       background-color: $color-primary-dark;
