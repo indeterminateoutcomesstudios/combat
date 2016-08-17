@@ -4,13 +4,13 @@
   left: 300px;
   height: 100%;
   width: calc(100% - 300px);
-  background-color: transparent;
+  background-color: rgba($color-background-medium, 0.75);
   z-index: 1000;
 }
 
 .modal {
   position: absolute;
-  top: 36px;
+  top: calc(5% + 36px);
   left: calc(50% + 150px);
   padding: $spacing-comfy;
   max-width: 450px;
@@ -18,9 +18,13 @@
   transform: translateX(-50%);
   z-index: 1001;
 
-  background-color: $color-background-dim;
-  border-radius: 0 0 4px 4px;
+  background-color: $color-background-dark;
+  border-radius: 4px;
   box-shadow: 0 4px rgba(0, 0, 0, 0.2);
+
+  .wordy {
+    color: $color-foreground;
+  }
 
   .h3 {
     margin: 0;
