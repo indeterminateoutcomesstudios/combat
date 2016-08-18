@@ -18,13 +18,17 @@
 .main {
   overflow-x: hidden;
   overflow-y: auto;
-  padding: $spacing-comfy $spacing-comfy 0;
+  padding: $spacing-comfy 0 0;
   background: $color-background-medium;
 }
 
 .constrained {
+
+  height: 100%;
   margin: 0 auto;
   max-width: 60.0rem;
+  padding: 0 $spacing-comfy;
+
 }
 
 header {

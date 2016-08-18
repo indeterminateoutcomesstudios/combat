@@ -1,9 +1,9 @@
 .modal-backdrop {
   position: fixed;
-  top: 36px;
-  left: 300px;
+  top: 0;
+  left: 0;
   height: 100%;
-  width: calc(100% - 300px);
+  width: 100%;
   background-color: rgba($color-background-medium, 0.75);
   z-index: 1000;
 }
@@ -11,7 +11,7 @@
 .modal {
   position: absolute;
   top: calc(5% + 36px);
-  left: calc(50% + 150px);
+  left: 50%;
   padding: $spacing-comfy;
   max-width: 450px;
   min-width: 300px;
