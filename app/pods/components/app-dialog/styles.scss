@@ -1,0 +1,63 @@
+$transition-duration: 250ms;
+
+& {
+
+  transition-property: opacity, visibility;
+
+  &:not(.shown):not(.fixed) {
+    opacity: 0;
+    visibility: hidden;
+    transition-duration: 0;
+
+    .dialog-content {
+      transform: translateX(-50%) translateY(#{-1 * $spacing-comfy});
+      transition-duration: 0;
+    }
+  }
+
+  &.shown {
+    opacity: 1;
+    visibility: visible;
+    transition-duration: $transition-duration;
+
+    .dialog-content {
+      transform: translateX(-50%) translateY(0);
+      transition-duration: $transition-duration;
+    }
+  }
+
+  &.fixed {
+    opacity: 1;
+    visibility: visible;
+
+    .dialog-content {
+      transform: translateX(-50%) translateY(0);
+    }
+  }
+
+}
+
+.dialog-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: $color-background-medium;
+  opacity: 0.75;
+  z-index: 1000;
+}
+
+.dialog-content {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  padding: $spacing-comfy;
+  max-width: 450px;
+  min-width: 300px;
+  z-index: 1001;
+
+  background-color: $color-background-dark;
+  border-radius: 4px;
+  box-shadow: 0 4px rgba(0, 0, 0, 0.2);
+}

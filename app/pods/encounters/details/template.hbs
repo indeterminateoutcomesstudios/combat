@@ -13,22 +13,24 @@
     onSetTurn=(route-action 'setTurn')
     onShowNotes=(action (mut showNotesFor))}}
 {{/unless}}
+
 {{#if showNameModal}}
-  <div class="modal-backdrop"></div>
-  <form class="modal traditional" {{action (route-action 'create') on='submit'}}>
-    <p>
-      {{input id='name' value=name}}
-      <label for="name" class="wordy">Name this new encounter:</label>
-    </p>
-    <p class="actions">
-      {{#link-to 'encounters' classNames='button subtle'}}Cancel{{/link-to}}
-      <button type="submit" class="button primary">Create</button>
-    </p>
-  </form>
+  {{#app-dialog fixed=true}}
+    <form class="traditional modal" {{action (route-action 'create') on='submit'}}>
+      <p>
+        {{input id='name' value=name}}
+        <label for="name" class="wordy">Name this new encounter:</label>
+      </p>
+      <p class="actions">
+        {{#link-to 'encounters' classNames='button subtle'}}Cancel{{/link-to}}
+        <button type="submit" class="button primary">Create</button>
+      </p>
+    </form>
+  {{/app-dialog}}
 {{/if}}
-{{#if showDeleteConfirmationModal}}
-  <div class="modal-backdrop"></div>
-  <form class="modal traditional">
+
+{{#app-dialog shown=showDeleteConfirmationModal}}
+  <form class="traditional modal">
     <p>
       <label class="wordy">Are you sure you want to delete this encounter?</label>
     </p>
@@ -37,10 +39,10 @@
       <button type="submit" class="button danger" {{action (route-action 'delete' model.encounter)}}>Yes</button>
     </p>
   </form>
-{{/if}}
-{{#if showDeleteConfirmationModalFor}}
-  <div class="modal-backdrop"></div>
-  <form class="modal traditional">
+{{/app-dialog}}
+
+{{#app-dialog shown=(if showDeleteConfirmationModalFor true false)}}
+  <form class="traditional modal">
     <p>
       <label class="wordy">Are you sure you want to delete “{{showDeleteConfirmationModalFor.name}}”?</label>
     </p>
@@ -49,14 +51,14 @@
       <button type="submit" class="button danger" {{action (route-action 'deleteCombatant' showDeleteConfirmationModalFor)}}>Yes</button>
     </p>
   </form>
-{{/if}}
-{{#if showNotesFor}}
-  <div class="modal-backdrop"></div>
-  <form class="modal traditional">
+{{/app-dialog}}
+
+{{#app-dialog shown=(if showNotesFor true false)}}
+  <form class="traditional modal">
     <p class="h3">{{showNotesFor.name}}’s Notes</p>
     <p>{{showNotesFor.notes}}</p>
     <p class="actions">
       <button type="button" class="button subtle" {{action (action (mut showNotesFor null))}}>Close</button>
     </p>
   </form>
-{{/if}}
+{{/app-dialog}}

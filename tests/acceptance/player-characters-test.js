@@ -40,7 +40,7 @@ test('should confirm when deleting a pc', async function(assert) {
   visit(`/player-characters/${pc.get('id')}`);
   await click('button:contains("Delete")');
 
-  assert.equal(find('.modal').length, 1, 'showed the "are you sure?" modal');
+  assert.equal(find('.app-dialog.shown').length, 1, 'showed the "are you sure?" modal');
 
 });
 
@@ -69,6 +69,6 @@ test('should dismiss the "are you sure?" modal when canceling', async function(a
   click('button:contains("Delete")');
   await click('form.modal button:contains("No")');
 
-  assert.equal(find('.modal').length, 0, 'dismissed the "are you sure?" modal');
+  assert.equal(find('.app-dialog.shown').length, 0, 'dismissed the "are you sure?" modal');
 
 });

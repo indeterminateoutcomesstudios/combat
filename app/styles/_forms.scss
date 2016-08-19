@@ -151,17 +151,8 @@ form, .form {
     }
 
     [type=number] {
-
       padding-left: 15px;
-
       text-align: center;
-
-      // &:not(:focus):not(:hover)::-webkit-inner-spin-button,
-      // &:not(:focus):not(:hover)::-webkit-outer-spin-button {
-      //   -webkit-appearance: none;
-      //   margin-right: 15px;
-      // }
-
     }
 
     textarea {
@@ -190,16 +181,30 @@ form, .form {
       flex-shrink: 0;
       flex-wrap: wrap;
       justify-content: space-between;
-      width: calc(50% - #{$spacing-comfy};
+      width: calc(50% - #{$spacing-comfy});
     }
 
   }
 
   &.modal {
+
     input {
       margin-left: 0;
       width: 100%;
     }
+
+    .wordy {
+      color: $color-foreground;
+    }
+
+    .h3 {
+      margin: 0;
+    }
+
+    .actions {
+      justify-content: flex-end;
+    }
+
   }
 
   &.inline {

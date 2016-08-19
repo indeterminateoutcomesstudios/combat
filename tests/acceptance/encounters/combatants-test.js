@@ -12,7 +12,7 @@ test('should confirm removing a combatant', async function(assert) {
   visit(`/encounters/${encounter.get('id')}`);
   await click('table .button.danger:eq(0)');
 
-  assert.equal(find('.modal').length, 1, 'showed the "are you sure?" modal');
+  assert.equal(find('.app-dialog.shown').length, 1, 'showed the "are you sure?" modal');
 
 });
 
@@ -41,9 +41,9 @@ test('should dismiss the "are you sure?" modal when canceling', async function(a
 
   visit(`/encounters/${encounter.get('id')}`);
   click('table .button.danger:eq(0)');
-  await click('form.modal button:contains("No")');
+  await click('.app-dialog.shown button:contains("No")');
 
-  assert.equal(find('.modal').length, 0, 'showed the "are you sure?" modal');
+  assert.equal(find('.app-dialog.shown').length, 0, 'showed the "are you sure?" modal');
 
 });
 
@@ -55,7 +55,7 @@ test('should show "notes"', async function(assert) {
   visit(`/encounters/${encounter.get('id')}`);
   await click('[data-action="notes"]:eq(0)');
 
-  assert.equal(find('.modal').length, 1, 'showed the "notes" modal');
+  assert.equal(find('.app-dialog.shown').length, 1, 'showed the "notes" modal');
 
 });
 
@@ -66,8 +66,8 @@ test('should dismiss "notes"', async function(assert) {
 
   visit(`/encounters/${encounter.get('id')}`);
   click('[data-action="notes"]:eq(0)');
-  await click('.modal button:contains("Close")');
+  await click('.app-dialog.shown button:contains("Close")');
 
-  assert.equal(find('.modal').length, 0, 'hid the "notes" modal');
+  assert.equal(find('.app-dialog.shown').length, 0, 'hid the "notes" modal');
 
 });
