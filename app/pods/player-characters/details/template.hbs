@@ -1,10 +1,10 @@
 <form {{action (route-action 'save') on='submit'}} class="traditional">
   <div class="subheader">
     <p class="sub" style="color: white; font-size: 3.2rem">
-      {{if model.isNew 'Add Player Character' model.name}}
+      {{if isNew 'Add Player Character' model.name}}
     </p>
     <p class="actions">
-      {{#unless model.isNew}}
+      {{#unless isNew}}
         <button class="button danger" {{action (toggle-action 'showDeleteConfirmationModal' this)}}>Delete</button>
       {{/unless}}
       {{#link-to 'player-characters.index' classNames='button'}}Cancel{{/link-to}}

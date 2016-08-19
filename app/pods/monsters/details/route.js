@@ -24,6 +24,7 @@ export default Ember.Route.extend(DataRoute, {
 
   setupController(controller, model) {
     controller.setProperties({
+      isNew: model.get('isNew'), // `model.isNew` is reset before the transition
       name: model.get('name'),
       showDeleteConfirmationModal: false
     });
