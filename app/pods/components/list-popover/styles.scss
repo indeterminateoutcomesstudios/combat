@@ -4,16 +4,23 @@
 }
 
 .popover-control {
+
   display: none;
+
+  &:not(:checked) ~ .popover,
+  &:not(:checked) ~ .popover-cover {
+    opacity: 0;
+    visibility: hidden;
+  }
 
   &:checked ~ .popover,
   &:checked ~ .popover-cover {
-    display: block !important;
+    opacity: 1;
+    visibility: visible;
   }
 }
 
 .popover {
-  display: none;
   padding: $spacing-normal 0;
   position: absolute;
   right: 0;
@@ -23,6 +30,8 @@
   background: mix($color-background-medium, $color-background-light);
   border-radius: 4px;
   box-shadow: 0 4px 0 rgba(black, 0.2);
+  transition-duration: 250ms;
+  transition-property: opacity, visibility;
 
   font-size: 1.8rem;
   font-style: normal;
@@ -42,9 +51,9 @@
   a {
     display: block;
     overflow: hidden;
-    max-width: 300px;
+    min-width: 120px;
+    max-width: 240px;
     padding: $spacing-close $spacing-comfy;
-    padding-right: $spacing-comfy * 3;
 
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -57,7 +66,6 @@
 }
 
 .popover-cover {
-  display: none !important;
   position: fixed;
   top: 0;
   left: 0;

@@ -1,0 +1,6 @@
+<div class="popover-backdrop"></div>
+<ul class="popover-content">
+  {{#each items as |item|}}
+    <li class="popover-item" {{action (action onSelect item)}}>{{item.name}}</li>
+  {{/each}}
+</ul>
