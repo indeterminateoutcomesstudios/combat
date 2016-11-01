@@ -10,6 +10,9 @@ export default Ember.Route.extend({
   },
 
   actions: {
+    didTransition() {
+      this.controller.set('showCreateModal', false);
+    },
     async create(name) {
       if (!name) { return; }
       this.controller.set('showCreateModal', false);
@@ -24,10 +27,6 @@ export default Ember.Route.extend({
     startCreate() {
       this.controller.set('showCreateModal', true);
       this.controller.set('name', null);
-    },
-    cancelCreate() {
-      this.controller.set('showCreateModal', false);
-      this.transitionTo('encounters');
     }
   }
 

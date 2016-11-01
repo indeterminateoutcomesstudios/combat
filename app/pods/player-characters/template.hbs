@@ -20,7 +20,7 @@
         {{input id=(concat id '_name') value=name}}
       </p>
       <p class="actions">
-        <button {{action (route-action 'cancelCreate')}} class="button">Cancel</button>
+        <button {{action (transition-to 'player-characters')}} class="button">Cancel</button>
         <button type="submit" class="button primary">Save</button>
       </p>
     </form>
