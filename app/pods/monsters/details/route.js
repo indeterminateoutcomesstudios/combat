@@ -23,9 +23,9 @@ export default Ember.Route.extend(DataRoute, {
   },
 
   setupController(controller, model) {
+    model.set('rename', model.get('name'));
     controller.setProperties({
       isNew: model.get('isNew'), // `model.isNew` is reset before the transition
-      name: model.get('name'),
       showDeleteConfirmationModal: false
     });
     this._super(controller, model);
@@ -33,7 +33,7 @@ export default Ember.Route.extend(DataRoute, {
 
   actions: {
     async save() {
-      this.currentModel.set('name', this.controller.get('name'));
+      this.currentModel.set('name', this.currentModel.get('rename'));
       // TODO: Some attacks may have been deleted; does not resetting the
       // `attacks` collection to only non-deleted ones cause issues?
       await this.currentModel.save()

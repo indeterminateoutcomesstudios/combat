@@ -1,16 +1,14 @@
-<div class="sidebar">
-  <header>
-    <h2>Player Characters</h2>
-    {{#link-to 'player-characters.details' 'new' classNames='button'}}Add{{/link-to}}
-  </header>
-  <ul class="content">
+{{#ember-wormhole to='sidebar'}}
+  <h2>
+    Player Characters
+    {{#link-to 'player-characters.details' 'new' class='icon'}}{{icon 'add'}}{{/link-to}}
+  </h2>
+  <ul>
     {{#each (sort-by 'name' (reject-by 'isNew' true model)) as |pc|}}
       <li>
         {{#link-to 'player-characters.details' pc.id}}{{pc.name}}{{/link-to}}
       </li>
     {{/each}}
   </ul>
-</div>
-<div class="main">
-  {{liquid-outlet class='constrained'}}
-</div>
+{{/ember-wormhole}}
+{{liquid-outlet enableGrowth=false}}

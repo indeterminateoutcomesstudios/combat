@@ -1,3 +1,10 @@
+label:not(.button) {
+  color: $color-foreground-dim;
+  font-size: 1.8rem;
+  font-style: oblique;
+  font-weight: normal;
+}
+
 form, .form {
 
   label.wordy {
@@ -173,7 +180,7 @@ form, .form {
       color: white;
 
       + label {
-        color: $color-primary-light;
+        color: $color-foreground-light;
       }
     }
 
