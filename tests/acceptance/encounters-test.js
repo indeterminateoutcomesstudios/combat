@@ -8,12 +8,7 @@ test('should ask for a name when creating an encounter', async function(assert) 
 
   await visit('/encounters/new');
 
-  assert.equal(find('.app-dialog.fixed').length, 1, 'showed the "name" modal');
-
-  let controller = this.container.lookup('controller:encounters.details');
-  assert.ok(controller.get('showNameModal'));
-
-  assert.equal(find('.content li').length, 0, 'did not show the new encounter');
+  assert.equal(find('.modal.shown').length, 1, 'showed the "name" modal');
 
 });
 
@@ -22,8 +17,8 @@ test('should name and create a new encounter', async function(assert) {
   FactoryGuy.cacheOnlyMode();
 
   visit('/encounters/new');
-  fillIn('#name', 'Morthos');
-  await triggerEvent('.app-dialog.fixed form', 'submit');
+  fillIn('[id$=_name]', 'Morthos');
+  await triggerEvent('.modal.shown form', 'submit');
 
   let encounters = await this.store.findAll('encounter'),
       newEncounter = encounters.objectAt(0);
@@ -36,7 +31,7 @@ test('should name and create a new encounter', async function(assert) {
 test('should cancel encounter creation', async function(assert) {
 
   visit('/encounters/new');
-  await click('.app-dialog.fixed a:contains("Cancel")');
+  await click('.modal.shown button:contains("Cancel")');
 
   assert.equal(currentURL(), '/encounters', 'transitioned back to the list');
 
@@ -50,7 +45,7 @@ test('should confirm when deleting an encounter', async function(assert) {
   visit(`/encounters/${encounter.get('id')}`);
   await click('button:contains("Delete")');
 
-  assert.equal(find('.app-dialog.shown').length, 1, 'showed the "are you sure?" modal');
+  assert.equal(find('.modal.shown').length, 1, 'showed the "are you sure?" modal');
 
 });
 
@@ -62,7 +57,7 @@ test('should delete an encounter', async function(assert) {
 
   visit(`/encounters/${encounter.get('id')}`);
   click('button:contains("Delete")');
-  await click('.app-dialog.shown button:contains("Yes")');
+  await click('.modal.shown button:contains("Yes")');
 
   let savedEncounters = await this.store.findAll('encounter');
   assert.equal(savedEncounters.get('length'), 1, 'deleted the encounter');
@@ -77,8 +72,8 @@ test('should dismiss the "are you sure?" modal when canceling', async function(a
 
   visit(`/encounters/${encounter.get('id')}`);
   click('button:contains("Delete")');
-  await click('.app-dialog.shown button:contains("No")');
+  await click('.modal.shown button:contains("No")');
 
-  assert.equal(find('.app-dialog.shown').length, 0, 'dismissed the "are you sure?" modal');
+  assert.equal(find('.modal.shown').length, 0, 'dismissed the "are you sure?" modal');
 
 });

@@ -15,7 +15,7 @@ export default Ember.Service.extend({
     if (electronApp) {
       electronApp.on.call(electronApp, ...args);
     } else {
-      Ember.Logger.warn('Attempted to listen to an Electron event, but not running in an Electron shell.');
+      Ember.Logger.debug('Attempted to listen to an Electron event, but not running in an Electron shell.');
     }
   }
 

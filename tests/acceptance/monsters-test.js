@@ -21,7 +21,7 @@ test('should add a new monster', async function(assert) {
   makeList('monster', 2);
 
   visit('/monsters/new');
-  fillIn('#name', 'New Monster');
+  fillIn('[id$=_name]', 'New Monster');
   await click('[type=submit]');
 
   let monsters = await this.store.findAll('monster');
@@ -52,7 +52,7 @@ test('should confirm when deleting a monster', async function(assert) {
   visit(`/monsters/${monster.get('id')}`);
   await click('button:contains("Delete")');
 
-  assert.equal(find('.app-dialog.shown').length, 1, 'showed the "are you sure?" modal');
+  assert.equal(find('.modal.shown').length, 1, 'showed the "are you sure?" modal');
 
 });
 

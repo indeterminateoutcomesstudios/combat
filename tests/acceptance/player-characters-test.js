@@ -21,7 +21,7 @@ test('should add a new player character', async function(assert) {
   makeList('player-character', 2);
 
   visit('/player-characters/new');
-  fillIn('#name', 'New Character');
+  fillIn('[id$=_name]', 'New Character');
   await click('[type=submit]');
 
   let pcs = await this.store.findAll('player-character');
@@ -40,7 +40,7 @@ test('should confirm when deleting a pc', async function(assert) {
   visit(`/player-characters/${pc.get('id')}`);
   await click('button:contains("Delete")');
 
-  assert.equal(find('.app-dialog.shown').length, 1, 'showed the "are you sure?" modal');
+  assert.equal(find('.modal.shown').length, 1, 'showed the "are you sure?" modal');
 
 });
 
