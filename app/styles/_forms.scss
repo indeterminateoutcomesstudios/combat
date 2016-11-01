@@ -1,4 +1,5 @@
-label:not(.button) {
+label:not(.button),
+.label {
   color: $color-foreground-dim;
   font-size: 1.8rem;
   font-style: oblique;
@@ -6,6 +7,20 @@ label:not(.button) {
 }
 
 form, .form {
+
+  .columns {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+  }
+
+  .column {
+    flex-grow: 1;
+
+    & + .column {
+      margin-left: $spacing-comfy * 2;
+    }
+  }
 
   label.wordy {
     justify-content: center;

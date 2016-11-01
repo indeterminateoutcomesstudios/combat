@@ -4,9 +4,7 @@ import DataRoute from 'ember-data-route';
 export default Ember.Route.extend(DataRoute, {
 
   model({ monster_id }) {
-    return monster_id === 'new' ?
-      this.store.createRecord('monster') :
-      this.store.findRecord('monster', monster_id);
+    return this.store.findRecord('monster', monster_id);
   },
 
   resetController() {
@@ -41,12 +39,19 @@ export default Ember.Route.extend(DataRoute, {
       this.transitionTo('monsters.details', this.currentModel.get('id'));
     },
     async delete(monster) {
+      this.controller.set('showDeleteConfirmationModal', false);
       await monster.destroyRecord();
       this.transitionTo('monsters');
     },
     addAttack() {
       this.currentModel.get('attacks')
         .pushObject(this.store.createRecord('attack'));
+    },
+    deleteAttack(attack) {
+      // NOTE: We’re not removing the attack from the model in case we need to
+      // rollback this relationship. Otherwise, the attack would disappear from
+      // the `attacks` array.
+      attack.deleteRecord();
     }
   }
 

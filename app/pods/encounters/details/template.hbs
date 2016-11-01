@@ -4,8 +4,8 @@
       <h1>{{currentModel.encounter.name}}</h1>
       <span class="spacer"></span>
       <button class="button danger" {{action (toggle-action 'showDeleteConfirmationModal' this)}}>Delete</button>
-      {{list-popover label='Add PC' currentModel=currentModel.playerCharacters onSelect=(route-action 'addPC')}}
-      {{list-popover label='Add Monster' currentModel=currentModel.monsters onSelect=(route-action 'addMonster')}}
+      {{list-popover label='Add PC' model=currentModel.playerCharacters onSelect=(route-action 'addPC')}}
+      {{list-popover label='Add Monster' model=currentModel.monsters onSelect=(route-action 'addMonster')}}
     </header>
     {{list-combatants class='constrained'
       combatants=currentModel.encounter.arrangedCombatants

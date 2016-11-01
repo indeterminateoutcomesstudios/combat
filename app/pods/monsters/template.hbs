@@ -1,7 +1,7 @@
 {{#ember-wormhole to='sidebar'}}
   <h2>
     Monsters
-    {{#link-to 'monsters.details' 'new' classNames='icon'}}{{icon 'add'}}{{/link-to}}
+    {{#link-to 'monsters.new' classNames='icon'}}{{icon 'add'}}{{/link-to}}
   </h2>
   <ul>
     {{#each (sort-by 'name' (reject-by 'isNew' true model)) as |monster|}}
@@ -12,3 +12,17 @@
   </ul>
 {{/ember-wormhole}}
 {{liquid-outlet enableGrowth=false}}
+{{#ember-wormhole to='modal'}}
+  {{#x-modal class=(if showCreateModal 'shown' 'hidden') as |id|}}
+    <form {{action (route-action 'create' name) on='submit'}} class="modal">
+      <p>
+        <label for="{{id}}_name">Name</label>
+        {{input id=(concat id '_name') value=name}}
+      </p>
+      <p class="actions">
+        <button {{action (route-action 'cancelCreate')}} class="button">Cancel</button>
+        <button type="submit" class="button primary">Save</button>
+      </p>
+    </form>
+  {{/x-modal}}
+{{/ember-wormhole}}

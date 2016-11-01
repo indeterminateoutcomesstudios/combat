@@ -1,8 +1,0 @@
-@import '_mixin';
-
-@include font-face('Alegreya', '400',  normal,  $type-regular);
-@include font-face('Alegreya', '400i', oblique, $type-regular);
-@include font-face('Alegreya', '700',  normal,  $type-bold);
-@include font-face('Alegreya', '700i', oblique, $type-bold);
-@include font-face('Alegreya', '900',  normal,  $type-black);
-@include font-face('Alegreya', '900i', oblique, $type-black);

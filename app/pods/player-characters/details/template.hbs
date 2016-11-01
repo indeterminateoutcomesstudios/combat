@@ -1,33 +1,33 @@
 {{#liquid-bind model use='offset-fade' class='liquid-main' enableGrowth=false as |currentModel|}}
   <form {{action (route-action 'save') on='submit'}} class="constrained traditional">
     <header>
-      <h1>{{if isNew 'Add Player Character' currentModel.name}}</h1>
+      <h1>{{currentModel.name}}</h1>
       <span class="spacer"></span>
-      {{#unless isNew}}
-        <button class="button danger" {{action (toggle-action 'showDeleteConfirmationModal' this)}}>Delete</button>
-      {{/unless}}
-      {{#link-to 'player-characters.index' classNames='button'}}Cancel{{/link-to}}
+      <button class="button danger" {{action (toggle-action 'showDeleteConfirmationModal' this)}}>Delete</button>
+      {{#link-to 'player-characters' classNames='button'}}Cancel{{/link-to}}
       <button type="submit" class="button primary">Save</button>
     </header>
-    <div class="column">
-      <p>
-        {{input id=(concat currentModel.id '_name') value=currentModel.rename}}
-        <label for="{{currentModel.id}}_name">Name</label>
-      </p>
-      <p style="width: calc(50% - 1.0rem)">
-        {{input id=(concat currentModel.id '_hitPoints') value=currentModel.hitPoints type='number'}}
-        <label for="{{currentModel.id}}_hitPoints">Max. HP</label>
-      </p>
-      <p style="width: calc(50% - 1.0rem)">
-        {{input id=(concat currentModel.id '_armorClass') value=currentModel.armorClass type='number'}}
-        <label for="{{currentModel.id}}_armorClass">Armor Class</label>
-      </p>
-    </div>
-    <div class="column">
-      <p>
-        {{textarea id=(concat currentModel.id '_notes') value=currentModel.notes}}
-        <label for="{{currentModel.id}}_notes">Notes</label>
-      </p>
+    <div class="columns">
+      <div class="column">
+        <p>
+          {{input id=(concat currentModel.id '_name') value=currentModel.rename}}
+          <label for="{{currentModel.id}}_name">Name</label>
+        </p>
+        <p style="width: calc(50% - 1.0rem)">
+          {{input id=(concat currentModel.id '_hitPoints') value=currentModel.hitPoints type='number'}}
+          <label for="{{currentModel.id}}_hitPoints">Max. HP</label>
+        </p>
+        <p style="width: calc(50% - 1.0rem)">
+          {{input id=(concat currentModel.id '_armorClass') value=currentModel.armorClass type='number'}}
+          <label for="{{currentModel.id}}_armorClass">Armor Class</label>
+        </p>
+      </div>
+      <div class="column">
+        <p>
+          {{textarea id=(concat currentModel.id '_notes') value=currentModel.notes}}
+          <label for="{{currentModel.id}}_notes">Notes</label>
+        </p>
+      </div>
     </div>
   </form>
   {{#ember-wormhole to='modal'}}
