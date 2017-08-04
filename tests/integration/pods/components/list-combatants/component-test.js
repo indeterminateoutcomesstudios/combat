@@ -8,7 +8,7 @@ moduleForComponent('list-combatants', 'Integration | Component | list combatants
 
 test('it renders', function(assert) {
 
-  this.on('no-op', Ember.K);
+  this.on('no-op', () => null);
   this.set('model', [ {}, {}, {}, {} ]);
   this.render(hbs`
     {{list-combatants combatants=model

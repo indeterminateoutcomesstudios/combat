@@ -31,7 +31,7 @@ test('should render items', function(assert) {
     { name: 'Item 2' },
     { name: 'Item 3' }
   ]);
-  this.on('select', Ember.K);
+  this.on('select', () => null);
 
   this.render(hbs`{{app-popover items=items onSelect=(action 'select')}}`);
 
