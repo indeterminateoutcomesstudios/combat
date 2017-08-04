@@ -12,6 +12,9 @@
 /.sass-cache
 /connect.lock
 /coverage/*
+/electron-builds
 /libpeerconnection.log
-npm-debug.log
+npm-debug.log*
 testem.log
+
+electron-out/
